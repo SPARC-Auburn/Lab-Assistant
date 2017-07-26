@@ -19,11 +19,11 @@ trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
 # Train based on the english corpus
 chatbot.train("chatterbot.corpus.english")
 
-try:
-    i = vlc.Instance()
-    p = i.media_player_new()
-except:
-    print("VLC could not be found")
+#try:
+#    i = vlc.Instance()
+#    p = i.media_player_new()
+#except:
+#    print("VLC could not be found")
 
 
 def GetWeather(place):
