@@ -1,4 +1,5 @@
 from Speech import *
+from elijahcommands import *
 from sys import executable
 import urllib
 from bs4 import BeautifulSoup
@@ -109,6 +110,15 @@ def PlayYoutubeAudio(url, searchWords):
     p.set_mrl(url)
     p.play()
 
+def Feelings():
+	karens_feelings = [
+	"i am bored.  i have not learned any new commands",
+	"great. today has been very exciting",
+	"it is important to remember computers do not have feelings"
+	]
+	feeling = random.randrange(0, len(karens_feelings), 1)
+	Speak(karens_feelings[feeling])
+
 # def WriteToArduino(thingToWrite):
 #     try:
 #         ser = serial.Serial(arduinoPort, 9600)
@@ -172,9 +182,9 @@ def GetTotalHours(person):
 # TODO: Possibly make commands into a switch-case statement instead of if-else
 
 
-
 def Commands(command):
     command = command.lower()
+    ElijahCommands(command)
     if (command == "what time is it"):
         Speak("The time is " + str(datetime.datetime.now().time().hour) + ":" + str(
             datetime.datetime.now().time().minute))
@@ -238,9 +248,14 @@ def Commands(command):
         GetWeather(command.split("weather for ")[1])
     elif(command == "what is spark"):
         Speak("SPARK is awesome!")
-    elif (command == "tell me a joke"):
+    elif(command == "tell me a joke"):
         TellJoke()
-   
+    elif(command == "give me a tour"):
+	Speak("welcome to the spark lab")
+	Speak("this is a group designed for nerds to collaborate and build projects")
+    elif(command.__contains__("how are you") or command.__contains__("how do you feel")):
+	Speak("i am glad you asked")
+	Feelings()
     else:
         responce = (chatbot.get_response(command.replace("hey karen ","")))
         print(responce)

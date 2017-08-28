@@ -1,19 +1,25 @@
 #!/bin/sh
 sudo apt-get -y install python-pip python-dev build-essential
 sudo apt-get -y install python-pip
-sudo pip install --upgrade virtualenv
+sudo -H pip install --upgrade virtualenv
 sudo apt-get -y install python
-sudo apt-get -y install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
 sudo apt-get -y install python-pyaudio python3-pyaudio
-sudo pip install pocketsphinx
-sudo pip install google-api-python-client
+sudo apt-get -y install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
+sudo apt-get -y install ffmpeg libav-tools
+sudo -H pip install pyaudio
+sudo -H pip install pocketsphinx
+sudo -H pip install google-api-python-client
 sudo apt-get -y install flac
-sudo pip install monotonic
-sudo pip install SpeechRecognition
+sudo -H pip install monotonic
+sudo -H pip install SpeechRecognition
 sudo apt-get -y install python-bs4
-sudo pip install pafy
-sudo pip install python-vlc
+sudo -H pip install pafy
+sudo -H pip install python-vlc
+sudo apt-get -y install pygame
 sudo apt-get -y install python-pyglet
-sudo pip install chatterbot
-echo KAREN dependencies installed. Adjust device indexes now.
+sudo -H pip install chatterbot
+sudo -H pip install gTTS
+sudo -H pip install pygame
+sudo apt-get -y install youtube-dl
 
+echo !!!!!!!KAREN dependencies installed. Adjust microphone index within code.!!!!!!!!
