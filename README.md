@@ -20,5 +20,10 @@ TourBot(KAREN)
 -----------
 Changelog
 -----------
-7-5-17
--KAREN is currently running on the Pi, installation instructions to be uploaded to GitHub
+7-5-17 <br />
+-KAREN is currently running on the Pi, installation instructions to be uploaded to GitHub 
+
+8-28-2017 <br />
+-General improvements, KAREN works best on Ubuntu 16.04 at the moment. <br />
+-Split up into PiKaren and PCKaren for better organization. <br />
+-ElijahCommands added. Framework for custom functions to be added
