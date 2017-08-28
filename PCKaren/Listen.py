@@ -1,3 +1,4 @@
+print("Initializing...")
 import Speech
 from Commands import *
 
