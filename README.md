@@ -22,8 +22,12 @@ The puropse of this project is to bring a system that allows for easy to use man
     sudo -H pip install --upgrade pip
     ```
 1. Clone directory into desired location using `git clone "https://github.com/SPARC-Auburn/Lab-Assistant"`
-1. Change directory into PCKaren using `cd PCKaren`
-1. Run installation script using `sudo -H ./install.sh`
+1. Run installation script using: 
+    ```
+    cd PCKaren
+    chmod +x ./install.sh
+    sudo -H ./install.sh
+    ```
 1. Start PCKaren by running `python Listen.py`
 
 ### Run PCKaren on Raspberry Pi 2 or 3 using Raspbian
@@ -36,8 +40,12 @@ The puropse of this project is to bring a system that allows for easy to use man
     sudo -H pip install --upgrade pip
     ```
 1. Clone directory into desired location using `git clone "https://github.com/SPARC-Auburn/Lab-Assistant"`
-1. Change directory into PCKaren using `cd PCKaren`
-1. Run installation script using `sudo -H ./install.sh`
+1. Run installation script using: 
+    ```
+    cd PCKaren
+    chmod +x ./install.sh
+    sudo -H ./install.sh
+    ```
 1. Start PCKaren by running `python Listen.py`
 
 ### Change Log
