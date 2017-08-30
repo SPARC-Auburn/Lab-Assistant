@@ -32,7 +32,7 @@
   * Time
   * Temperature
   * Lights
-###V1.8 (TBD)
+### V1.8 (TBD)
 * PersonalCommands suite
   * Record information
   * Wakeup time (like Sleep Cycle)
