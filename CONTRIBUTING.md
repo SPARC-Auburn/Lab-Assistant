@@ -21,6 +21,8 @@ A good branch name would be (where issue #7 is the ticket you're working on):
 Issue #7 - Slow Response times
 ```
 
+The issue name for this would be "Slow Response Times"
+
 ### 3. Clone the files to your working environment and run
 
 In order to start testing, download the repository. The best testing environment is a Linux distribution, and the Assistant can currently
