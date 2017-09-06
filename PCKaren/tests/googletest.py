@@ -6,7 +6,7 @@ import speech_recognition as sr
 
 # obtain audio from the microphone
 r = sr.Recognizer()
-with sr.Microphone(device_index=2, chunk_size = 2048, sample_rate = 48000) as source:
+with sr.Microphone(device_index=0, sample_rate = 48000) as source:
     r.adjust_for_ambient_noise(source)  # listen for 1 second to calibrate the energy threshold for ambient noise levels
     print(r.energy_threshold)
     print("Chucking rate:", source.CHUNK)
