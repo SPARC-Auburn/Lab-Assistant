@@ -1,3 +1,4 @@
+#IMPORTS
 from Speech import *
 from elijahcommands import *
 from sys import executable
@@ -9,16 +10,15 @@ import random
 import os
 import subprocess
 import datetime
-# TODO: Find a better chat-bot interface, or create one
-from chatterbot import ChatBot
 
-chatbot = ChatBot(
-'Karen',
-trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
-)
+#DEFAULT FUNCTIONS
+# TODO: Find a better chat-bot interface, or create one
+#from chatterbot import ChatBot
+
+#chatbot = ChatBot('Karen', trainer='chatterbot.trainers.ChatterBotCorpusTrainer')
 
 # Train based on the english corpus
-chatbot.train("chatterbot.corpus.english")
+#chatbot.train("chatterbot.corpus.english")
 
 #try:
 #    i = vlc.Instance()
@@ -35,7 +35,6 @@ def GetWeather(place):
             html = url_.read()
             soup = BeautifulSoup(html, "html.parser")
             print(soup)
-    #         wob_t
             temp = str((soup.findAll(attrs={'class': 'wtr_currTemp b_focusTextLarge'})[0]))
             temp = temp.replace('<div class="wtr_currTemp b_focusTextLarge">',"")
             temp = temp.replace("</div>","")
@@ -181,7 +180,7 @@ def GetTotalHours(person):
 
 # TODO: Possibly make commands into a switch-case statement instead of if-else
 
-
+# POSSIBLE COMMANDS
 def Commands(command):
     command = command.lower()
     ElijahCommands(command)
@@ -257,6 +256,6 @@ def Commands(command):
 	Speak("i am glad you asked")
 	Feelings()
     else:
-        responce = (chatbot.get_response(command.replace("hey karen ","")))
+        #responce = (chatbot.get_response(command.replace("hey karen ","")))
         print(responce)
         Speak(str(responce))

@@ -7,6 +7,7 @@ sudo apt-get -y install python-pyaudio python3-pyaudio
 sudo apt-get -y install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
 sudo apt-get -y install ffmpeg libav-tools
 sudo -H pip install pyaudio
+sudo apt-get -y install -qq swig libpulse-dev
 sudo -H pip install pocketsphinx
 sudo -H pip install google-api-python-client
 sudo apt-get -y install flac
