@@ -57,3 +57,8 @@ The puropse of this project is to bring a system that allows for easy to use man
    * Split up into PiKaren and PCKaren for better organization.
    * ElijahCommands added. Framework for custom functions to be added
    * Added installation instructions.
+   
+* 9-6-17
+   * Karen now responds when hearing the word "Karen"
+   * General code cleanup- added white space
+   * Needs speed improvement
