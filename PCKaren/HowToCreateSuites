@@ -1,0 +1,26 @@
+Suites are the best way to add your own, custom functions into the Assistant framework.
+
+There are only a few requirements for suites to be imported and used-
+
+1. "#suite.file" (without the quotes) must be the first line of code in your .py file (This feature will come later with an automatic search function)
+2. There must be a method that is the same as the file name + "Method". (ie. DefaultSuite - def DefaultSuiteMethod())
+3. When a command has been successfully heard based on the suite- the method MUST return True. If not, return false, so it will look for other commands from other suites.
+4. All methods that use the Assistant class functions must pass the assistant as a parameter to the function, as well as the SuiteMethod() (For now)
+
+To hook your method into the program, use the __main__.py included with the repository as an example. 
+
+Add your suite to the sendCommands method in __main__.py similarly as DefaultSuiteMethod is used.
+
+The following methods can be used in your custom Suites via the Assistant class:
+
+Listen() - Starts the assistant- causes it to begin listening for it's name and exceuting voice commands based on imported suites or ChatBot
+Speak(text) - "text" will be the value that your Assistant replies
+playSound(audiofile) - "audiofile" being the .mp3 file to play located in the main directory (unless specified)
+
+Other methods are currently internal, however there are variables that you can use to customize and read from your assistant:
+
+Assistant.intent - Extracted intent from given command via Wit.Ai (in progress)
+Assistant.userCommand - Raw command recognized by Google Speech (currently)
+Assistant.name - TBA
+Assistant.location - TBA
+Assistant.voice - TBA
