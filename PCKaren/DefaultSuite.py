@@ -77,7 +77,7 @@ def GetYoutubeAudioURL(assistant, searchWords):
 def TellJoke(assistant):
 	jokes = [
 		"Your GPA",
-		"Why did the chicken cross the road? To get to the spark lab",
+		"Why did the chicken cross the road? To get to the sparc lab",
 		"What did the ghost say to the bee.? . . . Booooo-beeeee!",
 		"Why did the chicken fall down the well? He couldn't see that well",
 		"2 fish are in a tank, one turns to the other, do you  know how to drive this thing?",
@@ -169,10 +169,10 @@ def GetTotalHours(assistant, person):
 
 def DefaultSuiteMethod(assistant, intent, userCommand):
 	print userCommand
-	if (userCommand == "how are you"):
+	if ("how are you" in userCommand):
 		Feelings(assistant)
 		return True
-	elif (userCommand == "tell me a joke"):
+	elif ("tell me a joke" in userCommand):
 		TellJoke(assistant)
 		return True
 	else:

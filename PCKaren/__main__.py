@@ -1,7 +1,7 @@
 from properties import *
 from DefaultSuite import *
 
-karen = Assistant("Karen", "English", "To assist SPARC members", "SPARC Lab")
+karen = Assistant("Karen", "English", "to assist SPARC members", "SPARC Lab")
 
 #Passes information from Assistant to the found suite.files
 def sendCommands(cmd):

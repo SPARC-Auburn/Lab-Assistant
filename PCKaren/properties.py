@@ -22,7 +22,7 @@ class Assistant:
 		self.intent = ""
 		
 		with sr.Microphone(device_index = 2, sample_rate = 44100) as source:
-			self.r.adjust_for_ambient_noise(source)											#Adjust for ambient noise by listening for 1 second													
+			self.r.adjust_for_ambient_noise(source)			#Adjust for ambient noise by listening for 1 second													
 			#self.r.energy_threshold = 30																					#Threshold offset
 			print "THRESHOLD: " + str(self.r.energy_threshold)
 			
@@ -30,17 +30,18 @@ class Assistant:
 		self.chatbot = ChatBot('Karen', trainer='chatterbot.trainers.ChatterBotCorpusTrainer')
 		#chatbot.train("chatterbot.corpus.english")
 		
-		if self.Speak("Checking for Internet connection") == False:										#Checks to see if gTTS is functioning properly
+		if self.Speak("I'm checking for an internet connection") == False:										#Checks to see if gTTS is functioning properly
 			print("I could not connect to the Internet, running in offline mode.")				
 			print("I will not be able to talk, but I can print out whatever respones I have.")
 		else:
-			self.Speak("Connected to internet!")		
+			self.Speak("I'm now connected to the internet!")
+			self.Speak("My name is " + self.name + " and I am here " + self.purpose) 
 			
 				
 	def Listen(self, prompt):
 			self.userCommand = ""	
-			#with sr.Microphone(device_index=2, chunk_size = 2048, sample_rate = 48000) as source: 	#Use for nice USB mics
-			with sr.Microphone(sample_rate = 44100) as source:
+			with sr.Microphone(device_index=2, chunk_size = 2048, sample_rate = 48000) as source: 	#Use for nice USB mics
+			#with sr.Microphone(sample_rate = 44100) as source:
 				try:
 					if(prompt != ""):
 						self.Speak(prompt)
@@ -52,7 +53,7 @@ class Assistant:
 					audio = self.r.listen(source, timeout = 5)
 					
 					print("...")
-					self.playSound("end.mp3")
+					#self.playSound("end.mp3")
 					try:
 						self.userCommand = self.r.recognize_google(audio)
 						self.userCommand = self.userCommand.lower()
