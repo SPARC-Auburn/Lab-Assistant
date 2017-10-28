@@ -96,5 +96,14 @@ Other methods are currently internal, however there are variables that you can u
    * Added start and stop mp3s for listening routine.
 
 * 10-21-17
-   * Made small command identification improvements
-   * Added Karen's more formal introduction
+   * Made small command identification improvements.
+   * Added Karen's more formal introduction.
+
+* 10-27-17
+   * Various reformatting and refactoring changes.
+   * Cleaned up code and squashed minor bugs.
+   * Replaced pygame with pyglet to be compatible with 64 bit Windows.
+   * Successfully ran on Windows through PyCharm and detailed instructions are in this readme above.
+
+* 10-28-17
+   * Fixed cross platform support. (Linux = Pygame; Windows/Mac = Pyglet)

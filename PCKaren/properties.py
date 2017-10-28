@@ -1,11 +1,16 @@
 # IMPORTS
+# import DefaultSuite
+from gtts import gTTS
+from sys import platform
+import time
+import os
 import time
 import speech_recognition as sr
-from gtts import gTTS
-import pyglet
-import os
-# import DefaultSuite
-
+from sys import platform
+if platform == "linux" or platform == "linux2":
+    import pygame
+else:
+    import pyglet
 
 class Assistant:
     userCommand = ""
@@ -19,7 +24,7 @@ class Assistant:
         self.r = sr.Recognizer()
         self.intent = ""
 
-        with sr.Microphone(device_index=2, sample_rate=44100) as source:
+        with sr.Microphone(device_index=2, sample_rate = 48000) as source:
             self.r.adjust_for_ambient_noise(source)  # Adjust for ambient noise by listening for 1 second
             # self.r.energy_threshold = 30 #Threshold offset
             print "THRESHOLD: " + str(self.r.energy_threshold)
@@ -35,8 +40,8 @@ class Assistant:
 
     def listen(self, prompt):
         self.userCommand = ""
-        with sr.Microphone(device_index=2, chunk_size=2048, sample_rate=48000) as source:  # Use for nice USB mics
-            # with sr.Microphone(sample_rate = 44100) as source:
+        with sr.Microphone(device_index=2, chunk_size=1024, sample_rate=48000) as source:  # Use for nice USB mics
+        # with sr.Microphone(sample_rate = 44100) as source:
             try:
                 if prompt != "":
                     self.speak(prompt)
@@ -103,16 +108,23 @@ class Assistant:
         audio_file = "response.mp3"
         tts = gTTS(text=str(whattosay), lang="en")
         tts.save(audio_file)
-        response = pyglet.media.load(audio_file, streaming=False)
-        response.play()
-        time.sleep(response.duration)
+        self.playsound(audio_file)
         os.remove(audio_file)
 
     def playsound(self, audio_file):
-        sound = pyglet.media.load(audio_file, streaming=False)
-        sound.play()
-        time.sleep(sound.duration)
-
+        if platform == "linux" or platform == "linux2":
+            pygame.mixer.pre_init(22050,-16,1,2048)
+            pygame.init()
+            pygame.mixer.init()
+            pygame.mixer.music.load(audio_file)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)
+        elif platform == "darwin" or platform == "win32":
+            sound = pyglet.media.load(audio_file, streaming=False)
+            sound.play()
+            time.sleep(sound.duration)
+            
     # In Listen method, get intent and information from DialogFlow
     def extractintent(self, cmd):
         pass
