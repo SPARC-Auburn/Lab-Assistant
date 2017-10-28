@@ -1,18 +1,29 @@
-import os
-import pygame
-import time, sys
+"""
+A testing program that utilizes Googles Text To Speech (GTTS) engine and pyglet to speak text.
+Ensure that AVbin is installed for pyglet to run properly: https://avbin.github.io/AVbin/Download.html
+"""
+
 from gtts import gTTS
-from os import remove
-tts = gTTS(text = "This is a speech test", lang='en')
-tts.save("testspeech.mp3")
-pygame.init()
-pygame.mixer.init()
-pygame.mixer.music.load("testspeech.mp3")
-pygame.mixer.music.play()
-while pygame.mixer.music.get_busy():
-	pygame.time.Clock().tick(10)
-print("This is a speech test")
+import time
+import os
+import pyglet
 
 
+def speak(whattosay):
+    """
+    :param whattosay: String that will be spoken by pyglet
+    """
+    print (whattosay)
+    audio_file = "response.mp3"
+    tts = gTTS(text=str(whattosay), lang="en")
+    tts.save(audio_file)
+    response = pyglet.media.load(audio_file, streaming=False)
+    response.play()
+    time.sleep(response.duration)
+    os.remove(audio_file)
 
 
+speak("One")
+speak("Two")
+speak("Three")
+speak("It Works!")
