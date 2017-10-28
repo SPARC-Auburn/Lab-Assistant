@@ -107,3 +107,7 @@ Other methods are currently internal, however there are variables that you can u
 
 * 10-28-17
    * Fixed cross platform support. (Linux = Pygame; Windows/Mac = Pyglet)
+   * Improved comments in program
+   * Streamlined code
+   * Added DialogFlow capabilities
+   * Added lab and home suites

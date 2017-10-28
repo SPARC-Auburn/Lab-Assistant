@@ -1,17 +1,17 @@
 # suite.file
 """
-Program Name: defaultsuite.py
+Program Name: labsuite.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
-Description: A collection of basic functions
+Description: A collection of functions pertaining to the SPARC lab
 """
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = 'b3def782c82448d09039f553d5222dc4'
+CLIENT_ACCESS_TOKEN = 'c687739558a946c597b4dbe07f17aa5b'
 
 
-class DefaultSuite:
+class LabSuite:
     def __init__(self):
         """Initializes DialogFlow agent"""
         self.agent = dialogflow.Agent(CLIENT_ACCESS_TOKEN)

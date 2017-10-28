@@ -1,35 +1,51 @@
+"""
+Program Name: __main__.py
+Organization: Student Projects and Research Committee at Auburn University
+Project: Lab Assistant
+Description: The main file of the lab assistant python project.  Searches directory for suites and passes information
+from assistant to the found suite files.
+"""
 from properties import *
-from DefaultSuite import *
+from defaultsuite import *
+from labsuite import *
+from homesuite import *
 
 karen = Assistant("Karen", "English", "to assist SPARC members", "SPARC Lab")
 
 
-# Passes information from Assistant to the found suite.files
-
-
-def sendcommands(cmd):
-    if defaultsuitemethod(karen, karen.intent, cmd) == False:
-        pass
-    else:
-        print "No command recognized"
-
-    # Searches for files with "#suite.file" to import as a suite
-
-
+# TODO: Figure out more elegant solution to importing suites
 def searchsuites():
+    """Searches for files with "#suites.file" to import as a suites"""
     with open("SuiteList.txt", "w") as suiteList:
-        for file in os.listdir(os.curdir):
-            if file.endswith(".py"):
-                f = open(file, "r")
-                firstLine = f.readline()
-                if firstLine.__contains__("#suite.file"):
-                    print "Imported " + file[:-3]
-                    global newSuite
-                    newSuite = __import__(file[:-3], globals(), locals())
-                    suiteList.write(file[:-3])
+        for pyfile in os.listdir(os.curdir):
+            if pyfile.endswith(".py"):
+                f = open(pyfile, "r")
+                firstline = f.readline()
+                if firstline.__contains__("#suites.file"):
+                    print ("Imported " + pyfile[:-3])
+                    global newsuite
+                    newsuite = __import__(pyfile[:-3], globals(), locals())
+                    suiteList.write(pyfile[:-3])
     suiteList.close()
 
 
-while True:
-    karen.listen("")
-    sendcommands(karen.userCommand)
+def main():
+    """Main function that keeps Karen listening and responding"""
+    defaultsuite = DefaultSuite()
+    labsuite = LabSuite()
+    while True:
+        karen.listen("")
+        user_message = str(karen.userCommand)
+        if len(user_message) > 0:
+            if defaultsuite.checkcommand(karen, user_message):
+                pass
+            elif labsuite.checkcommand(karen, user_message):
+                pass
+            elif homesuitemethod(karen, karen.intent, user_message):
+                pass
+            else:
+                print ("No command recognized")
+
+
+if __name__ == "__main__":
+    main()
