@@ -37,15 +37,16 @@ def main():
         karen.listen("")
         user_message = str(karen.userCommand)
         if len(user_message) > 0:
-            if defaultsuite.checkcommand(karen, user_message):
-                pass
-            elif labsuite.checkcommand(karen, user_message):
-                pass
-            elif homesuitemethod(karen, karen.intent, user_message):
-                pass
+            whattosay = None
+            if defaultsuite.checkcommand(user_message) is not None:
+               whattosay = defaultsuite.response
+            elif labsuite.checkcommand(user_message) is not None:
+                whattosay = labsuite.response
+            # elif homesuitemethod(karen, karen.intent, user_message):
+            #     pass
             else:
-                print ("No command recognized")
-
+                whattosay = "I did not understand what you said"
+            karen.speak(whattosay)
 
 if __name__ == "__main__":
     main()

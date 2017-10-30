@@ -15,8 +15,9 @@ class DefaultSuite:
     def __init__(self):
         """Initializes DialogFlow agent"""
         self.agent = dialogflow.Agent(CLIENT_ACCESS_TOKEN)
+        self.response = ""
 
-    def checkcommand(self, assistant, usermsg):
+    def checkcommand(self, usermsg):
         """
         Sends the DialogFlow agent a message and speaks the response.
         :param assistant: The assistant that is interacting with the user
@@ -25,11 +26,11 @@ class DefaultSuite:
         :returns False: False if response is not found
         """
         self.agent.sendcommand(usermsg)
-        whattosay = self.agent.getresponse()
-        if len(whattosay) <= 0:
-            return False
-        elif whattosay.lower() == "none":
-            return False  # Add additional features here if desired
+        self.response = self.agent.getresponse()
+        if len(self.response) <= 0:
+            return None
+        elif self.response.lower() == "none":
+            # Add additional features here if desired
+            return None
         else:
-            assistant.speak(whattosay)
-            return True
+            return self.response
