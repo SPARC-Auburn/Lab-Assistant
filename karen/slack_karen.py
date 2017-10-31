@@ -1,5 +1,5 @@
 """
-Program Name: slackkaren.py
+Program Name: slack_karen.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
 Description: Allows Karen to communicate with Slack.
@@ -7,13 +7,11 @@ Instructions: Run the following in the terminal: python slackkaren.py "xoxb-abcd
 with correct token and bot id in quotes as arguments
 In Slack use @Karen to communicate
 """
-from slackclient import SlackClient
 import sys
-import time
-from properties import *
-from defaultsuite import *
-from labsuite import *
-import random
+from slackclient import SlackClient
+import manage_suites
+from voice_properties import *
+
 
 READ_WEBSOCKET_DELAY = 1  # 1 second delay between reading from fire hose
 
@@ -23,8 +21,6 @@ class Bot:
         self.AT_BOT = "<@" + bot_id + ">"
         self.EXAMPLE_COMMAND = "do"
         self.slack_client = SlackClient(bot_token)
-        self.defaultsuite = DefaultSuite()
-        self.labsuite = LabSuite()
 
     def handle_command(self, command, channel):
         """
@@ -32,24 +28,8 @@ class Bot:
             are valid commands. If so, then acts on the commands. If not,
             returns back what it needs for clarification.
         """
-        if len(command) > 0:
-            if self.defaultsuite.checkcommand(command) is not None:
-                whattosay = self.defaultsuite.response
-            elif self.labsuite.checkcommand(command) is not None:
-                whattosay = self.labsuite.response
-            else:
-                fallbackresponses = [
-                    "I'm sorry. I did not understand what you said.",
-                    "Could you reword what you are telling me.  I am having trouble computing.",
-                    "I am having trouble discerning what you meant there.",
-                    "I am sorry, but I do not understand.",
-                    "My circuits do not compute",
-                    "Why do you say that?"
-                    "I do not know"
-                ]
-                response = random.randrange(0, len(fallbackresponses), 1)
-                whattosay = fallbackresponses[response]
-            self.slack_client.api_call("chat.postMessage", channel=channel, text=whattosay, as_user=True)
+        whattosay = manage_suites.getresponse(command)
+        self.slack_client.api_call("chat.postMessage", channel=channel, text=whattosay, as_user=True)
 
     def parse_slack_output(self, slack_rtm_output):
         """

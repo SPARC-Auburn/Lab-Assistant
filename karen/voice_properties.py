@@ -1,6 +1,5 @@
-# IMPORTS
 """
-Program Name: properties.py
+Program Name: voice_properties.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
 Description: Contains the assistant class which is responsible for recording and decoding mic input and speaking

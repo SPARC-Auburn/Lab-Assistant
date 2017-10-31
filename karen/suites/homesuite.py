@@ -1,17 +1,17 @@
 # suite.file
 """
-Program Name: labsuite.py
+Program Name: homesuite.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
-Description: A collection of functions pertaining to the SPARC lab
+Description: A collection of responses and functions pertaining to home automation and light control.
 """
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = 'c687739558a946c597b4dbe07f17aa5b'
+CLIENT_ACCESS_TOKEN = '1c3ed24cea584fd4ae3cee15e8bdfdf4'
 
 
-class LabSuite:
+class HomeSuite:
     def __init__(self):
         """Initializes DialogFlow agent"""
         self.agent = dialogflow.Agent(CLIENT_ACCESS_TOKEN)
@@ -20,7 +20,6 @@ class LabSuite:
     def checkcommand(self, usermsg):
         """
         Sends the DialogFlow agent a message and speaks the response.
-        :param assistant: The assistant that is interacting with the user
         :param usermsg: The message that the user inputted
         :returns True: True if response is found
         :returns False: False if response is not found

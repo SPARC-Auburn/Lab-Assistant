@@ -1,7 +1,12 @@
 # Lab-Assistant
 
 ### Project Overview
-The puropse of this project is to bring a system that allows for easy to use management of lab equipment and various administrative features.
+The puropse of this project is to create a virtual assistant to assist SPARC members.  The virtual assistant will be fully featured including abilities to help out in the lab to automating a home. It will include a system that allows for easy to use management of lab equipment and various administrative features.
+
+### Karen's Forms
+* Voice - Uses a microphone to take input from the user and speaks response back to user.
+* Text - Uses the terminal to allow user to type commands and receive responses.
+* Slack - Uses Slack messaging app to allow SPARC members to type commands and receive responses.
 
 ### Wishlist of Features
 * Raspberry Pi Central Control w/ voice commands
@@ -25,9 +30,9 @@ The puropse of this project is to bring a system that allows for easy to use man
     chmod +x ./install.sh
     sudo -H ./install.sh
     ```
-1. Change directory to PCKaren.
+1. Change directory to karen.
 1. Plug in USB mic if computer does not have an integrated microphone.
-1. Start PCKaren by running `python __main__.py`
+1. Start Karen by running `python karen.py`
 1. Karen should now respond to your requests. ("How are you?, Tell me a joke., etc.)
 1. If you need to stop the program use "CTRL-SHIFT-\".
 
@@ -41,8 +46,8 @@ The puropse of this project is to bring a system that allows for easy to use man
 1. Change the Project Interpreter to be "Python27/python.exe"
 1. Press the green "+" button and add any Python libraries that are missing and press "OK".
 1. Plug in USB mic if computer does not have an integrated microphone.
-1. In the tree on the left, press "__main__.py".
-1. Start PCKaren by running "python __main__.py" by right clicking in the center of the screen and pressing "Run __main__.py"
+1. In the tree on the left, press "voice_karen.py".
+1. Start PCKaren by running "python voice_karen.py" by right clicking in the center of the screen and pressing "Run voice_karen.py"
 1. Karen should now respond to your requests. ("How are you?, Tell me a joke., etc.)
 1. If you need to stop the program press the red square in the toolbar.
 
@@ -52,28 +57,23 @@ Suites are the best way to add your own, custom functions into the Assistant fra
 
 There are only a few requirements for suites to be imported and used-
 
-1. "#suite.file" (without the quotes) must be the first line of code in your .py file (This feature will come later with an automatic search function)
-1. There must be a method that is the same as the file name + "Method". (ie. DefaultSuite - def DefaultSuiteMethod())
-1. When a command has been successfully heard based on the suite- the method MUST return True. If not, return false, so it will look for other commands from other suites.
-1. All methods that use the Assistant class functions must pass the assistant as a parameter to the function, as well as the SuiteMethod() (For now)
+1. There must be a class that is the same as the file name in camel case notation. (ie. defaultsuite - class DefaultSuite)
+1. The class must have an __init__ and checkcommand() function.  Use defaultsuite.py as a template.
+1. Replace the "CLIENT_ACCESS_TOKEN" with the CLIENT_ACCESS_TOKEN from DialogFlow's corresponding agent.
+1. Add additional recognition under the elif statement.
 
-To hook your method into the program, use the __main__.py included with the repository as an example.
+To hook your method into the program, import the suite in manage_suites.py like "from suites.newsuite import *"
 
-Add your suite to the sendCommands method in __main__.py similarly as DefaultSuiteMethod is used.
+Add your suite to the suites array to be included in the processing of commands.
 
-The following methods can be used in your custom Suites via the Assistant class:
-
-* Listen() - Starts the assistant- causes it to begin listening for it's name and exceuting voice commands based on imported suites or ChatBot
-* Speak(text) - "text" will be the value that your Assistant replies
-* playSound(audiofile) - "audiofile" being the .mp3 file to play located in the main directory (unless specified)
-
-Other methods are currently internal, however there are variables that you can use to customize and read from your assistant:
-
-* Assistant.intent - Extracted intent from given command via Wit.Ai (in progress)
-* Assistant.userCommand - Raw command recognized by Google Speech (currently)
-* Assistant.name - TBA
-* Assistant.location - TBA
-* Assistant.voice - TBA
+### Current and Proposed Suites
+1. Default - A collection of basic responses.
+1. Lab - A collection of responses and functions pertaining to assisting users in the SPARC lab.
+1. Home - A collection of responses and functions pertaining to home automation and light control.
+1. Weather - A collection of responses and functions pertaining to processing weather commands.
+1. Personal - A collection of functions pertaining to personal commands like reminders, time, and alarms.
+1. Knowledge - A collection of functions to search Google, Bing, Wolfram Alpha, Wikipedia, or etc.
+1. Fallback - A collection of fallback responses if previous suites did not catch.
 
 
 ### Change Log
@@ -111,3 +111,7 @@ Other methods are currently internal, however there are variables that you can u
    * Streamlined code
    * Added DialogFlow capabilities
    * Added lab and home suites
+
+* 10-29-17
+   * Restructured files to improve flexibility and make importing suites easier
+   * Added text_karen
