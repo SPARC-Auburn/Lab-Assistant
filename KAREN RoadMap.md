@@ -4,19 +4,23 @@
 * Initial upload
 ### V1.1 (8/28/17)
 * Installation file added
-## TODO
 ### V1.2 (9/4/17)
 * Siri-like approach to listening
 * General code cleanup
   * -temporary removal of certain lab features
 ### V1.3 (9/9/17)
-* Wit.Ai functionality added
+* Setup suites
 * Framework for custom functions (ie. ElijahCommands)
-### V1.4 (9/18/17)
+### V1.4 (10/30/17)
+* Integrated DialogAPI
+* Code cleanup and commentation
+* Added Text and Slack based Karen
+## TO DO
+### V1.5 (TBD)
 * Framework for Bluetooth-Serial commands sent to Raspberry Pi
 * Framework for Bluetooth-Serial commands sent to Arduino
 * Framework for Wifi commands sent to Raspberry Pi
-### V1.5 (10/1/17)
+### V1.6 (TBD)
 * LabCommands suite
   * Lab door unlock via remote Arduino
   * Party lights via remote Arduino
@@ -24,15 +28,15 @@
   * Tool Signout
   * Lab Tour
   * Motion Camera capture ---- 1.5.5
-### V1.6 (TBD)
-* Touch screen interface via Raspberry Pi (PiKaren)
 ### V1.7 (TBD)
+* Touch screen interface via Raspberry Pi (PiKaren)
+### V1.8 (TBD)
 * HomeCommands suite
   * Weather
   * Time
   * Temperature
   * Lights
-### V1.8 (TBD)
+### V1.9 (TBD)
 * PersonalCommands suite
   * Record information
   * Wakeup time (like Sleep Cycle)
