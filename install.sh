@@ -22,6 +22,7 @@ sudo -H pip install chatterbot
 sudo -H pip install gTTS
 sudo -H pip install pygame
 sudo apt-get -y install youtube-dl
+sudo -H pip install slackclient
 sudo -H pip install apiai
 
 echo !!!!!!!KAREN dependencies installed. Adjust microphone index within code.!!!!!!!!
