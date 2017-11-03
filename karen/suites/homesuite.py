@@ -8,7 +8,7 @@ Description: A collection of responses and functions pertaining to home automati
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = '1c3ed24cea584fd4ae3cee15e8bdfdf4'
+CLIENT_ACCESS_TOKEN = '665a8602efe74041ac56958d1ee6a59d'
 
 
 class HomeSuite:

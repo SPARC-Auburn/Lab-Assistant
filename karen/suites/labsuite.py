@@ -8,7 +8,7 @@ Description: A collection of functions pertaining to the SPARC lab
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = 'c687739558a946c597b4dbe07f17aa5b'
+CLIENT_ACCESS_TOKEN = 'ea8267fe88af49d8ba389465105b5fbe'
 
 
 class LabSuite:

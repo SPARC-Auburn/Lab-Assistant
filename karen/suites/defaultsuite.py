@@ -8,7 +8,7 @@ Description: A collection of basic functions
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = 'b3def782c82448d09039f553d5222dc4'
+CLIENT_ACCESS_TOKEN = 'd8cd9faa2fe14731b1187d05b7d6f409'
 
 
 class DefaultSuite:

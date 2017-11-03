@@ -8,7 +8,7 @@ Description: A collection of responses and functions pertaining to processing we
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = 'd1842e15ec9f4a6980983ca884baea47'
+CLIENT_ACCESS_TOKEN = 'e56951c22d6346b6b705016d091f640f'
 
 
 class WeatherSuite:

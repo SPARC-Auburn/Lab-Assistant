@@ -8,7 +8,7 @@ Description: A collection of fallback responses if other suites do not catch the
 
 import dialogflow
 
-CLIENT_ACCESS_TOKEN = '41fc319eb855405fa73f5f8445c2ea8e'
+CLIENT_ACCESS_TOKEN = '95bf7491a61d49d5862f1465cb4bd5ab'
 
 
 class FallBackSuite:
