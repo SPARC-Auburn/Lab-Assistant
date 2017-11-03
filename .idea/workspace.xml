@@ -2,52 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f66b7028-1654-4b9f-bde9-7dd29ec9f244" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore..txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/KAREN RoadMap.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentation/Overall-Karen-Diagram_V1.4.PNG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/PCKaren.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/dictionaries/Matthew.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/DefaultSuite-Archived.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/DoorSensor.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/SuiteList.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/end.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/archived/start.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/manage_suites.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/slack_karen.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/defaultsuite.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow_archive/defaultsuite.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow_archive/fallbacksuite.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow_archive/homesuite.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow_archive/labsuite.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/dialogflow_archive/weathersuite.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/fallbacksuite.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/homesuite.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/labsuite.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/suites/weathersuite.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/audiotest.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/dialogflowtest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/getslackbotid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/googletest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/gttstest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/internetcheck.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/microphonelist.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/tests/slacktest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/text_karen.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/voice_karen.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/karen/voice_properties.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/Overall-Karen-Diagram.graphml" afterPath="$PROJECT_DIR$/documentation/Overall-Karen-Diagram.graphml" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +18,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-2226">
-                <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+              <first_editor relative-caret-position="399">
+                <caret line="63" column="70" lean-forward="true" selection-start-line="63" selection-start-column="70" selection-end-line="63" selection-end-column="70" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -309,7 +264,7 @@
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2008593" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.061761547" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33255813" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -737,8 +692,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-2226">
-            <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <first_editor relative-caret-position="399">
+            <caret line="63" column="70" lean-forward="true" selection-start-line="63" selection-start-column="70" selection-end-line="63" selection-end-column="70" />
             <folding />
           </first_editor>
           <second_editor>
