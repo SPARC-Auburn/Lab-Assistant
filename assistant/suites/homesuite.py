@@ -25,7 +25,7 @@ class HomeSuite:
         :returns False: False if response is not found
         """
         self.agent.sendcommand(usermsg)
-        self.response = self.agent.getresponse()
+        self.response = self.agent.getspeech()
         if len(self.response) <= 0:
             return None
         elif self.response.lower() == "none":

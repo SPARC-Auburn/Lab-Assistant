@@ -25,6 +25,8 @@ This project is programmed in Python.  Python provides a simple yet powerful bac
 <img src="documentation/dialogflow_logo.png" height = "106" width = "400" alt="Project Diagram"></img>
 
 To help give the virtual assistant the ability to understand the English language, we are using a Google owned service called DialogFlow.  It is a natural language processor in which it deconstructs user inputs into intents (meaning) and entities (specifics).  Through customization and training, a machine learning algorithm can be tuned to allow the assistant to more intelligently communicate.
+
+The DialogFlow documentation walks through an example of how it works: https://dialogflow.com/docs/getting-started/basics
 ## Running the Assistant
 ### Run Voice Client on PC using PyCharm (Windows, Ubuntu, etc.)
 <img src="documentation/pycharm_logo.png" height = "100" width = "100" alt="Project Diagram"></img>

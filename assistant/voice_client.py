@@ -1,5 +1,5 @@
 """
-Program Name: voice_karen.py
+Program Name: voice_client.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
 Description: A voice based version of Karen.  Uses speech to text and text to speech to interact with user.

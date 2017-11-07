@@ -1,0 +1,9 @@
+Apache Lab-Assistant
+
+Copyright 2017 The Apache Software Foundation
+
+This product includes software developed at:
+
+* The Apache Software Foundation (http://www.apache.org/)
+* Google's DialogFlow (https://dialogflow.com/)
+* Yahoo (https://www.yahoo.com/)

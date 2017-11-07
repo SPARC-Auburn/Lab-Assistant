@@ -1,60 +1,66 @@
-# suite.file
-"""
-Program Name: weathersuite.py
-Organization: Student Projects and Research Committee at Auburn University
-Project: Lab Assistant
-Description: A collection of responses and functions pertaining to processing weather commands.
+# -*- coding:utf8 -*-
+# !/usr/bin/env python
+# Copyright 2017 Google Inc. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""This is a sample for a weather fulfillment webhook for an API.AI agent
+This is meant to be used with the sample weather agent for API.AI, located at
+https://console.api.ai/api-client/#/agent//prebuiltAgents/Weather
+
+This sample uses the WWO Weather Forecast API and requires an WWO API key
+Get a WWO API key here: https://developer.worldweatheronline.com/api/
 """
 
-import dialogflow
 import json
 
 from flask import Flask, request, make_response, jsonify
-from weather.forecast import Forecast, validate_params
+
+from forecast import Forecast, validate_params
 
 APP = Flask(__name__)
 LOG = APP.logger
 
-CLIENT_ACCESS_TOKEN = 'e56951c22d6346b6b705016d091f640f'
 
+@APP.route('/', methods=['POST'])
+def webhook():
+    """This method handles the http requests for the API.AI webhook
 
-class WeatherSuite:
-    def __init__(self):
-        """Initializes DialogFlow agent"""
-        self.agent = dialogflow.Agent(CLIENT_ACCESS_TOKEN)
-        self.response = ""
+    This is meant to be used in conjunction with the weather API.AI agent
+    """
+    req = request.get_json(silent=True, force=True)
+    try:
+        action = req.get('result').get('action')
+    except AttributeError:
+        return 'json error'
 
-    def checkcommand(self, usermsg):
-        """
-        Sends the DialogFlow agent a message and speaks the response.
-        :param usermsg: The message that the user inputted
-        :returns response if found
-        :returns None if no response is found
-        """
-        self.agent.sendcommand(usermsg)
-        req = self.agent.response
-        try:
-            action = req.get('result').get('action')
-        except AttributeError:
-            return 'json error'
+    if action == 'weather':
+        res = weather(req)
+    elif action == 'weather.activity':
+        res = weather_activity(req)
+    elif action == 'weather.condition':
+        res = weather_condition(req)
+    elif action == 'weather.outfit':
+        res = weather_outfit(req)
+    elif action == 'weather.temperature':
+        res = weather_temperature(req)
+    else:
+        return None
 
-        if action == 'weather':
-            res = weather(req)
-        elif action == 'weather.activity':
-            res = weather_activity(req)
-        elif action == 'weather.condition':
-            res = weather_condition(req)
-        elif action == 'weather.outfit':
-            res = weather_outfit(req)
-        elif action == 'weather.temperature':
-            res = weather_temperature(req)
-        else:
-            return None
+    print 'Action: ' + action
+    print 'Response: ' + res
 
-        print 'Action: ' + action
-        print 'Response: ' + res
-
-        return make_response(jsonify({'speech': res, 'displayText': res}))
+    return make_response(jsonify({'speech': res, 'displayText': res}))
 
 
 def weather(req):
@@ -214,3 +220,6 @@ def weather_temperature(req):
 
     return forecast.get_temperature_response()
 
+
+if __name__ == '__main__':
+    APP.run(debug=True, host='0.0.0.0')

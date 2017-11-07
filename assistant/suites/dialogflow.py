@@ -31,9 +31,11 @@ class Agent:
         :param token: the client access token for the agent
         """
         self.ai = apiai.ApiAI(token)
-        self.returnedresponse = ""
-        self.returnedintent = ""
-        self.returnedentity = ""
+        self.speech = ""
+        self.response = ""
+        self.action = ""
+        self.parameters = ""
+        self.actionincomplete = ""
 
     def sendcommand(self, usermsg):
         """
@@ -42,19 +44,15 @@ class Agent:
         """
         request = self.ai.text_request()
         request.query = usermsg
-        response = json.loads(request.getresponse().read())
-
-        result = response['result']
-        action = result.get('action')
-        actionincomplete = result.get('actionIncomplete', False)
-
-        self.returnedresponse = response['result']['fulfillment']['speech']
+        self.response = json.loads(request.getresponse().read())
+        self.speech = self.response['result']['fulfillment']['speech']
+        self.actionincomplete = self.response.get('actionIncomplete', False)
 
     def getresponse(self):
-        return self.returnedresponse
+        return self.response
 
-    def getintent(self):
-        return self.returnedintent
+    def getspeech(self):
+        return self.speech
 
-    def getentity(self):
-        return self.returnedentity
+    def isincomplete(self):
+        return self.actionincomplete

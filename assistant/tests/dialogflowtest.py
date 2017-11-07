@@ -33,7 +33,7 @@ except ImportError:
 
     import apiai
 
-CLIENT_ACCESS_TOKEN = 'b3def782c82448d09039f553d5222dc4'
+CLIENT_ACCESS_TOKEN = '0559826f1eca414da768262a971df1f8'
 
 
 def main():
@@ -56,6 +56,7 @@ def main():
         actionIncomplete = result.get('actionIncomplete', False)
 
         print(u"< %s" % response['result']['fulfillment']['speech'])
+        # print(response)
 
         if action is not None:
             if action == u"send_message":

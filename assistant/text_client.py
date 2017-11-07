@@ -1,5 +1,5 @@
 """
-Program Name: text_karen.py
+Program Name: text_client.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
 Description: A text based version of Karen.  All commands are inputted and all responses are displayed in the terminal.

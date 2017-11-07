@@ -1,5 +1,5 @@
 """
-Program Name: slack_karen.py
+Program Name: slack_client.py
 Organization: Student Projects and Research Committee at Auburn University
 Project: Lab Assistant
 Description: Allows Karen to communicate with Slack.
