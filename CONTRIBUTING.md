@@ -59,7 +59,7 @@ See the "Running the Assistant" section of the README.md file in this repository
  * Currently, the best way to help with development is to look into the **Issues tab**. This keeps track of the current roadmap
  for Lab-Assistant, and are the features/fixes/improvements that are intended to be rolled out and worked on.
  * Once you have your own fork to work on, take a look at the different issues under [Issues](https://github.com/SPARC-Auburn/Lab-Assistant/issues).
- * If you are looking to get more information on helping or have suggestions, feel free to email us at sparc.auburn@auburn.edu. (Also to be added as a contributor to this repository).
+ * If you are looking to get more information on helping or have suggestions, feel free to email us at sparc.auburn@gmail.com. (Also to be added as a contributor to this repository).
  * You can also view the [Projects](https://github.com/SPARC-Auburn/Lab-Assistant/projects) tab to see what is currently being worked on, by whom, and what our goals are for this repository.
 
 ### 5. Implement your fix or feature
