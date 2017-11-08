@@ -9,13 +9,13 @@ Description: A collection of responses and functions pertaining to processing we
 import dialogflow
 import json
 
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, make_response, jsonify  # request
 from weather.forecast import Forecast, validate_params
 
 APP = Flask(__name__)
 LOG = APP.logger
 
-CLIENT_ACCESS_TOKEN = 'e56951c22d6346b6b705016d091f640f'
+CLIENT_ACCESS_TOKEN = '0559826f1eca414da768262a971df1f8'
 
 
 class WeatherSuite:
@@ -23,6 +23,7 @@ class WeatherSuite:
         """Initializes DialogFlow agent"""
         self.agent = dialogflow.Agent(CLIENT_ACCESS_TOKEN)
         self.response = ""
+        self.action = ""
 
     def checkcommand(self, usermsg):
         """
@@ -51,10 +52,10 @@ class WeatherSuite:
         else:
             return None
 
-        print 'Action: ' + action
-        print 'Response: ' + res
-
-        return make_response(jsonify({'speech': res, 'displayText': res}))
+        self.response = res
+        self.action = action
+        print ("Action = " + action)
+        return res
 
 
 def weather(req):
@@ -202,7 +203,7 @@ def weather_temperature(req):
         return error
 
     # If the user didn't specify a temperature, get the weather for them
-    if not forecast_params['temperature']:
+    if 'temperature' not in forecast_params:
         return weather(req)
 
     # create a forecast object which retrieves the forecast from a external API
@@ -213,4 +214,3 @@ def weather_temperature(req):
         return error
 
     return forecast.get_temperature_response()
-

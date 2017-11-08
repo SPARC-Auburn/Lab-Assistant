@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f66b7028-1654-4b9f-bde9-7dd29ec9f244" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NOTICE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assistant/suites/weather/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assistant/suites/weather/weathertest.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assistant/suites/weather/app.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/manage_suites.py" afterPath="$PROJECT_DIR$/assistant/manage_suites.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/slack_client.py" afterPath="$PROJECT_DIR$/assistant/slack_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/defaultsuite.py" afterPath="$PROJECT_DIR$/assistant/suites/defaultsuite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/dialogflow.py" afterPath="$PROJECT_DIR$/assistant/suites/dialogflow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/fallbacksuite.py" afterPath="$PROJECT_DIR$/assistant/suites/fallbacksuite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/homesuite.py" afterPath="$PROJECT_DIR$/assistant/suites/homesuite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/labsuite.py" afterPath="$PROJECT_DIR$/assistant/suites/labsuite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/weather/forecast.py" afterPath="$PROJECT_DIR$/assistant/suites/weather/forecast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/weather/weathertest.py" afterPath="$PROJECT_DIR$/assistant/suites/weather/weathertest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/suites/weathersuite.py" afterPath="$PROJECT_DIR$/assistant/suites/weathersuite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/tests/dialogflowtest.py" afterPath="$PROJECT_DIR$/assistant/tests/dialogflowtest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/text_client.py" afterPath="$PROJECT_DIR$/assistant/text_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assistant/voice_client.py" afterPath="$PROJECT_DIR$/assistant/voice_client.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,25 +18,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="weathersuite.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="weathersuite.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assistant/suites/weathersuite.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-231">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="204" column="32" lean-forward="false" selection-start-line="204" selection-start-column="32" selection-end-line="204" selection-end-column="32" />
               <folding>
                 <element signature="e#246#263#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialogflow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assistant/suites/dialogflow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding>
-                <element signature="e#252#289#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,8 +33,18 @@
       <file leaf-file-name="text_client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assistant/text_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="273">
+              <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slack_client.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assistant/slack_client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="105" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="105" />
               <folding />
             </state>
           </provider>
@@ -66,8 +53,8 @@
       <file leaf-file-name="manage_suites.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assistant/manage_suites.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="348">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="e#233#266#0" expanded="true" />
               </folding>
@@ -78,18 +65,28 @@
       <file leaf-file-name="weathertest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weathertest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="31" />
+            <state relative-caret-position="420">
+              <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forecast.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="weather_obj.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/site-packages/weather/objects/weather_obj.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forecast.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assistant/suites/weather/forecast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="367" column="8" lean-forward="false" selection-start-line="367" selection-start-column="8" selection-end-line="367" selection-end-column="8" />
+            <state relative-caret-position="403">
+              <caret line="417" column="0" lean-forward="true" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
               <folding>
                 <element signature="e#1028#1041#0" expanded="true" />
               </folding>
@@ -97,34 +94,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assistant/suites/weather/config.py">
+      <file leaf-file-name="datetime.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/datetime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="-880">
+              <caret line="492" column="26" lean-forward="false" selection-start-line="492" selection-start-column="26" selection-end-line="492" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather_entities.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weather_entities.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3453">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assistant/suites/weather/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding>
-                <element signature="e#1010#1021#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -141,6 +116,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>delta</find>
+      <find>combine</find>
+      <find>timedelta</find>
+      <find>API.AI Parameters:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,19 +159,20 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/assistant/tests/dialogflowtest.py" />
         <option value="$PROJECT_DIR$/assistant/suites/weather/__init__.py" />
-        <option value="$PROJECT_DIR$/assistant/suites/weather/weathertest.py" />
         <option value="$PROJECT_DIR$/NOTICE.md" />
-        <option value="$PROJECT_DIR$/assistant/suites/weather/forecast.py" />
         <option value="$PROJECT_DIR$/assistant/suites/weather/config.py" />
         <option value="$PROJECT_DIR$/assistant/suites/weather/app.py" />
-        <option value="$PROJECT_DIR$/assistant/suites/weathersuite.py" />
         <option value="$PROJECT_DIR$/assistant/suites/dialogflow.py" />
         <option value="$PROJECT_DIR$/assistant/manage_suites.py" />
+        <option value="$PROJECT_DIR$/assistant/suites/weather/forecast-archived.py" />
+        <option value="$PROJECT_DIR$/assistant/suites/weather/weathertest.py" />
+        <option value="$PROJECT_DIR$/assistant/suites/weathersuite.py" />
+        <option value="$PROJECT_DIR$/assistant/suites/weather/forecast.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1050" />
   </component>
@@ -387,10 +366,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.text_client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.weathersuite" />
-        <item index="2" class="java.lang.String" itemvalue="Python.weathertest" />
-        <item index="3" class="java.lang.String" itemvalue="Python.dialogflowtest" />
-        <item index="4" class="java.lang.String" itemvalue="Python.text_karen" />
+        <item index="1" class="java.lang.String" itemvalue="Python.text_karen" />
+        <item index="2" class="java.lang.String" itemvalue="Python.weathersuite" />
+        <item index="3" class="java.lang.String" itemvalue="Python.weathertest" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dialogflowtest" />
       </list>
     </recent_temporary>
   </component>
@@ -418,14 +397,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16917293" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33255813" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33255813" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -454,7 +434,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33255813" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16917293" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -475,16 +455,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="115" column="5" lean-forward="false" selection-start-line="115" selection-start-column="5" selection-end-line="116" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/karen/manage_suites.py" />
-    <entry file="file://$PROJECT_DIR$/karen/suites/homesuite.py" />
     <entry file="file://$PROJECT_DIR$/karen/suites/weathersuite.py" />
     <entry file="file://$PROJECT_DIR$/karen/suites/fallbacksuite.py" />
     <entry file="file://$PROJECT_DIR$/karen/suites/__init__.py" />
@@ -557,14 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/slack_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assistant/voice_client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -621,34 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weather_responses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weather_entities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3453">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/datetime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10752">
-          <caret line="512" column="137" lean-forward="false" selection-start-line="512" selection-start-column="137" selection-end-line="512" selection-end-column="137" />
           <folding />
         </state>
       </provider>
@@ -661,68 +599,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weathertest.py">
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/forecast-archived.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="31" />
+        <state relative-caret-position="-11769">
+          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/app.py">
+    <entry file="file://C:/Python27/Lib/site-packages/weather/objects/forecast_obj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#1010#1021#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="21">
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/forecast.py">
+    <entry file="file://C:/Python27/Lib/site-packages/weather/objects/weather_obj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="367" column="8" lean-forward="false" selection-start-line="367" selection-start-column="8" selection-end-line="367" selection-end-column="8" />
-          <folding>
-            <element signature="e#1028#1041#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-9">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-762174762/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-880">
+          <caret line="492" column="26" lean-forward="false" selection-start-line="492" selection-start-column="26" selection-end-line="492" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/slack_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="105" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="105" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assistant/suites/dialogflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding>
             <element signature="e#252#289#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant/text_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assistant/manage_suites.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="348">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="e#233#266#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/text_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weathertest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assistant/suites/weathersuite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="368">
+          <caret line="204" column="32" lean-forward="false" selection-start-line="204" selection-start-column="32" selection-end-line="204" selection-end-column="32" />
           <folding>
             <element signature="e#246#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2415">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/weather_responses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant/suites/weather/forecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="417" column="0" lean-forward="true" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
+          <folding>
+            <element signature="e#1028#1041#0" expanded="true" />
           </folding>
         </state>
       </provider>
