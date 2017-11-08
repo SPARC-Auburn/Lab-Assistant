@@ -1,6 +1,6 @@
 ## Contributing
 
-For those who would like to help in growing this repository, here are some guidelines on how to get started.
+For those who would like to help in developing the Lab-Assistnat repository, here are some guidelines on how to get started.
 
 ### 1. Where do I go from here?
 
@@ -11,9 +11,9 @@ if not, go ahead and [create an issue](https://github.com/SPARC-Auburn/Lab-Assis
 
 ### 2. Fork & create a branch
 
-If the issue is something you think you can fix, create a fork of your own and a branch with a name
+If the issue is something you think you can contribute to, create a fork of your own and a branch with a name
 describing the problem. Then create a pull request to the main branch. This will allow you to work on the code
-without changing the primary files
+without changing the primary files and let the administrators of the project take a look at the code you wish to upload without disturbing the existing workflow.
 
 A good branch name would be (where issue #7 is the ticket you're working on):
 
@@ -25,15 +25,17 @@ The issue name for this would be "Slow Response Times"
 
 ### 3. Clone the files to your working environment and run
 
-In order to start testing, download the repository. The best testing environment is a Linux distribution, and the Assistant can currently
-be run by running the command
+In order to start testing, download the repository. This can be done via the command:
 
 ```
-python Listen.py
+git clone https://github.com/SPARC-Auburn/Lab-Assistant.git
 ```
 
-In the terminal window while under the "PCKaren" directory.
+And work from the development file.
+Or just download the **development** branch to one of your directories.
+If you have a Linux distribution, or if you have Windows, download [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows). PyCharm is a great development environment for Linux, Mac, and Windows for the Python programming language.
 
+See the "Running the Assistant" section of the README.md file in this repository to see the full process of getting your first assistant started.
 
 ### 4. Did you find a bug?
 
@@ -46,18 +48,19 @@ In the terminal window while under the "PCKaren" directory.
   possible, and a **code sample** or an **executable test case** demonstrating
   the expected behavior that is not occurring.
 
-* If possible, use the relevant bug report templates to create the issue.
-  Simply copy the content of the appropriate template into a .py file, make the
-  necessary changes to demonstrate the issue, and **paste the content into the
-  issue description**.
+* When creating an issue concerning a bug, please include the following information:
+  ** Your operating system
+  ** Your error
+  ** Your process for replicating said error
+  ** Any other information you believe may be relevant
   
 ### 5. Do you want to help development?
 
- * Currently, the best way to help with development is to look into the **projects tab**. This keeps track of the current roadmap
- for Lab-Assistant, and are the features that are intended to be rolled out.
- * Once you have your own fork to work on, take a look at the different versions under [Projects](https://github.com/SPARC-Auburn/Lab-Assistant/projects).
- * Each version should have a feature that is either planned, under development, or finished. Find a feature you'd like to work on and
- submit a pull request for us to take a look at!
+ * Currently, the best way to help with development is to look into the **Issues tab**. This keeps track of the current roadmap
+ for Lab-Assistant, and are the features/fixes/improvements that are intended to be rolled out and worked on.
+ * Once you have your own fork to work on, take a look at the different issues under [Issues](https://github.com/SPARC-Auburn/Lab-Assistant/issues).
+ * If you are looking to get more information on helping or have suggestions, feel free to email us at sparc.auburn@auburn.edu. (Also to be added as a contributor to this repository).
+ * You can also view the [Projects](https://github.com/SPARC-Auburn/Lab-Assistant/projects) tab to see what is currently being worked on, by whom, and what our goals are for this repository.
 
 ### 5. Implement your fix or feature
 
@@ -67,14 +70,14 @@ If your program becomes irreparable, you can always clone or download it again.
 
 ### 6. Make a Pull Request
 
-At this point, you should ensure that your branch is up to date with the most current master branch of Lab-Assistant.
+At this point, you should ensure that your branch is up to date with the most current development branch of Lab-Assistant.
 Doing this will ensure that the feature or fix you have written will work with the current version.
-Then update your feature branch from your local copy of master, and push it!
+Then update your feature branch from your local copy of "development".
 
 Finally, go to GitHub and
 [make a Pull Request](https://help.github.com/articles/creating-a-pull-request)!
 
 The retainers of this repository will run your code through a few tests to ensure that it is working correctly and 
-will added it to the master branch as soon as it's been verified and is beneficial to what is being done.
+will add it to the online development branch as soon as it's been verified and is beneficial to what is being done, and eventually the master branch.
 
 We really appreciate all your help!
