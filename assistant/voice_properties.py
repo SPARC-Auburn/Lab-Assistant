@@ -119,7 +119,7 @@ class Assistant:
         """
         print (whattosay)
         audio_file = "response.mp3"
-        tts = gTTS(text=str(whattosay), lang="en")
+        tts = gTTS(text=whattosay.decode("ascii", errors="ignore").encode(), lang="en")
         tts.save(audio_file)
         self.playsound(audio_file)
         os.remove(audio_file)
