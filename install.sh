@@ -24,6 +24,7 @@ sudo -H pip install pygame
 sudo apt-get -y install youtube-dl
 sudo -H pip install slackclient
 sudo -H pip install apiai
+sudo -H pip install flask
 
 echo !!!!!!!KAREN dependencies installed. Adjust microphone index within code.!!!!!!!!
 
