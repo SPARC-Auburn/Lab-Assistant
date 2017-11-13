@@ -7,20 +7,23 @@ Description: A voice based version of Karen.  Uses speech to text and text to sp
 from voice_properties import *
 import manage_suites
 
-karen = Assistant("Karen", "English", "to assist SPARC members", "SPARC Lab")
 
-
-def main():
+def main(assistant):
     """Main function that keeps Karen listening and responding"""
     while True:
-        if karen.listen("") == True:
-            user_message = str(karen.userCommand)
+        if assistant.listen():
+            user_message = str(assistant.userCommand)
             if len(user_message) > 0:
                 whattosay = manage_suites.getresponse(user_message)
-                karen.speak(whattosay)
+                assistant.speak(whattosay)
         else:
             pass
 
 
 if __name__ == "__main__":
-    main()
+    print("What microphone input are you using (ex: 1 for built-in and 2 for USB mic)?")
+    mic = -1
+    while mic not in range(0, 10):
+        mic = int(raw_input("< "))
+    karen = Assistant("Karen", "English", "to assist SPARC members", "SPARC Lab", mic)
+    main(karen)

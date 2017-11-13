@@ -84,11 +84,11 @@ def weather(req):
 
     # If the user requests a datetime period (a date/time range), get the
     # response
-    if forecast.datetime_start and forecast.datetime_end:
-        response = forecast.get_datetime_period_response()
+    if forecast.date_start and forecast.date_end:
+        response = forecast.get_date_period_response()
     # If the user requests a specific datetime, get the response
-    elif forecast.datetime_start:
-        response = forecast.get_datetime_response()
+    elif forecast.date_start:
+        response = forecast.get_date_response()
     # If the user doesn't request a date in the request get current conditions
     else:
         response = forecast.get_current_response()

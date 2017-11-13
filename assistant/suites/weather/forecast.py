@@ -25,10 +25,10 @@ process and validate date related to the weather forecast class.  It pulls weath
 
 import random
 from datetime import datetime as dt
-from datetime import timedelta
 from weather import Weather
-from config import (_TEMP_LIMITS, _DEFAULT_TEMP_UNIT)
 from weather_responses import (
+    WEATHER_ACTIVITY_YES,
+    WEATHER_ACTIVITY_NO,
     LIST_YES,
     LIST_NO,
     LIST_COLD,
@@ -36,19 +36,29 @@ from weather_responses import (
     LIST_WARM,
     LIST_HOT,
     WEATHER_CURRENT,
-    WEATHER_DATE,
-    WEATHER_WEEKDAY,
-    WEATHER_DATE_TIME,
-    # WEATHER_TIME_PERIOD,
-    # WEATHER_TIME_PERIOD_DEFINED,
-    # WEATHER_DATE_PERIOD_WEEKEND,
-    # WEATHER_DATE_PERIOD,
-    WEATHER_ACTIVITY_YES,
-    WEATHER_ACTIVITY_NO,
-    # RESPONSE_WEATHER_CONDITION,
-    RESPONSE_WEATHER_OUTFIT)
-from weather_entities import (WINTER_ACTIVITY, SUMMER_ACTIVITY, DEMI_ACTIVITY, UNSUPPORTED, COLD_WEATHER,
-                              WARM_WEATHER, HOT_WEATHER, RAIN, SNOW, SUN)
+    WEATHER_DATE)
+from weather_entities import (
+    WINTER_ACTIVITY,
+    SUMMER_ACTIVITY,
+    DEMI_ACTIVITY,
+    UNSUPPORTED,
+    COLD_WEATHER,
+    WARM_WEATHER,
+    HOT_WEATHER,
+    RAIN,
+    SNOW,
+    SUN)
+
+# ---- Constants ----
+MAX_FORECAST_LEN = 5
+DEFAULT_TEMP_UNIT = 'F'
+TEMP_LIMITS = {
+    'hot': {'C': 25, 'F': 77},
+    'warm': {'C': 15, 'F': 59},
+    'chilly': {'C': 15, 'F': 41},
+    'cold': {'C': -5, 'F': 23}
+}
+DAYS_OF_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 
 class Forecast(object):
@@ -59,22 +69,15 @@ class Forecast(object):
 
     Attributes:
         city (str): the city for the weather forecast
-        datetime_start (datetime.datetime): forecast start date or datetime
-        datetime_end (datetime.datetime): forecast end date or datetime
+        date_start (datetime.datetime): forecast start date or datetime
         unit (str): the unit of temperature: Celsius ('C') or Fahrenheit ('F')
         action (dict): any actions in the request (activity, condition, outfit)
     """
 
     def __init__(self, params):
-        """
-        Initializes the Forecast object
-
-        gets the forecast for the provided dates
-        """
-
+        """Initializes the Forecast object. Gets the forecast for the provided dates"""
         self.city = params['city']
-        self.datetime_start = params['datetime_start']
-        self.datetime_end = params['datetime_end']
+        self.date_start = params['datetime_start']
         self.unit = params['unit']
         self.action = {
             'activity': params['activity'],
@@ -94,243 +97,33 @@ class Forecast(object):
         self.wind = location.wind()
         self.forecasts = location.forecast()
 
-    # def __get_forecast(self):
-    #     """
-    #     Takes a date or date period and a city
-    #
-    #     raises an exception when dates are outside what can be forecasted
-    #     Returns the weather for the period and city as a dict
-    #     """
-    #
-    #     datetime_start = self.datetime_start
-    #     datetime_end = self.datetime_end
-    #
-    #     if datetime_start and datetime_end:
-    #         date_interval = datetime_end - datetime_start
-    #         forecast_length = date_interval.days
-    #     elif datetime_start:
-    #         forecast_length = 1
-    #     else:
-    #         datetime_start = dt.now().date()
-    #         forecast_length = 1
-    #
-    #     # Get the start date
-    #     try:
-    #         date_start = datetime_start.date()
-    #     except AttributeError:
-    #         date_start = datetime_start
-    #
-    #     # Get the furthest date in the future we can get a forecast for
-    #     max_forecast_date = dt.now().date() + timedelta(days=MAX_FORECAST_LEN)
-    #     furthest_date_requested = dt.combine(date_start, timedelta(days=forecast_length))
-    #
-    #     # Check to see that the forecast dates requested are not too far into
-    #     # the future
-    #     if furthest_date_requested > max_forecast_date:
-    #         raise ValueError(
-    #             'I couldn\'t find a forecast for that far in the future.')
-    #
-    #     # Get the weather for each day
-    #     for day in self.forecasts:
-    #         current_date = date_start + timedelta(days=day)
-    #         forecast['weather'].append(day)
-    #     return forecast
-
-    # def __call_wwo_api(self, date):
-    #     """Calls the wwo weather API for a date
-    #
-    #     raises an exception for network errors
-    #     Returns a dict of the JSON 'data' attribute in the response
-    #     """
-    #
-    #     wwo_data = {
-    #         'key': WWO_API_KEY,
-    #         'q': self.city,
-    #         'format': 'json',
-    #         'num_of_days': 1,
-    #         'mca': 'no',
-    #         'lang': 'en',
-    #         'cc': 'yes',
-    #         'tp': '1',
-    #         'fx': 'yes',
-    #         'date': date
-    #     }
-    #
-    #     response = requests.get(
-    #         'http://api.worldweatheronline.com/premium/v1/weather.ashx',
-    #         params=wwo_data
-    #     )
-    #
-    #     weather_data = response.json()['data']
-    #     error = weather_data.get('error')
-    #     if error:
-    #         raise IOError(error[0]['msg'])
-    #     else:
-    #         return weather_data
-
-    # def __get_max_min_temp(self):
-    #     """Calculate the max and min temperatures for the date range
-    #     """
-    #
-    #     temps = []
-    #     for day in self.forecast['weather']:
-    #         for hour in day['hourly']:
-    #             temps.append(int(hour['temp' + self.unit]))
-    #
-    #     return (max(temps), min(temps))
-
-    def get_datetime_response(self):
-        """Takes a datetime and forecast
-
-        Returns the forecast for that datetime as a string
+    def get_date_response(self):
+        """Takes a date and forecast
+        :returns the forecast for that datetime as a string
         """
-
-        max_temp = int(self.forecasts[0].high())
-        min_temp = int(self.forecasts[0].low())
-        temp = (max_temp + min_temp) / 2
-        temperature = str(temp).encode('utf-8') + \
-            u'°'.encode('utf-8') + self.unit.encode('utf-8')
-        condition = self.forecasts[0].text().lower()
-
-        # Get the start date
         try:
-            date_start = self.datetime_start.date()
+            date_start = self.date_start.date()
         except AttributeError:
-            date_start = self.datetime_start
-
-        # if the weather forecast is for today and they specified a time
-        if (date_start == dt.now().date() and
-                isinstance(self.datetime_start, dt)):
-            output_string = random.choice(WEATHER_DATE_TIME)
-            response = output_string.format(
-                place=self.city,
-                time=self.datetime_start.strftime('%I:%M%p'),
-                temperature=temperature,
-                condition=condition,
-                day='Today')
-        # else
-        else:
-            # if it's within a week
-            time_difference = date_start - dt.now().date()
-            if time_difference <= timedelta(days=7):
-                # Get the day of the week or set to 'today'
-                day = self.datetime_start.strftime('%A')
-                if date_start == dt.now().date():
-                    day = 'Today'
-                # Format Response
-                output_string = random.choice(WEATHER_DATE)
-                response = output_string.format(
-                    place=self.city,
-                    day=day,
-                    temperature=temperature,
-                    condition=condition)
-            # if the date is more than a week away
-            else:
-                output_string = random.choice(WEATHER_WEEKDAY)
-                response = output_string.format(
-                    place=self.city,
-                    condition=condition,
-                    temperature=temperature,
-                    date=self.datetime_start.strftime('%B %-d'))
+            date_start = self.date_start
+        days_from_today = date_start - dt.now().date()
+        if days_from_today == 0:  # Today
+            date = "Today"
+        elif days_from_today == 1:  # Tomorrow
+            date = "Tomorrow"
+        elif days_from_today < 0:  # In the past
+            return "I do not remember what the weather was on that day."
+        elif days_from_today > MAX_FORECAST_LEN:  # Too far in the future
+            return "I cannot look that far into the future."
+        else:  # Another day of the week
+            date = "on " + DAYS_OF_WEEK[date_start.weekday()]
+        output_string = random.choice(WEATHER_DATE)
+        response = output_string.format(
+            day=date,
+            place=self.city,
+            high=self.forecasts[0].high(),
+            low=self.forecasts[0].low(),
+            condition=self.forecasts[0].text())
         return response
-
-    # def get_datetime_period_response(self):
-    #     """Takes a date period and forecast
-    #
-    #     Returns the forecast for the date period as a string
-    #     """
-    #
-    #     datetime_start = self.datetime_start
-    #     datetime_end = self.datetime_end
-    #     forecasts = self.forecasts
-    #
-    #     # datetime period over the same day
-    #     if datetime_start.day == datetime_end.day:
-    #
-    #         # Get the temperature throughout the time period and average it
-    #         temps = []
-    #         hours = []
-    #         # Get the set of hours in military time to average over for the day
-    #         for hour in range(datetime_start.hour, datetime_end.hour + 1):
-    #             hours.append(str(hour * 100))  # WWO API uses military time
-    #         # Get the forecasted temperature for every hour during the period
-    #         for hour in forecast['weather'][0]['hourly']:
-    #             if hour['time'] in hours:
-    #                 temps.append(hour['temp' + self.unit])
-    #         # Calculate the average temperature for the time period
-    #         avg_temp = sum(temps) / len(temps)
-    #         # Make a human readable string of the temperature
-    #         temperature = str(avg_temp) + u'°'.encode('utf-8') + self.unit
-    #
-    #         # Get the conditions for the time period
-    #         condition = forecast['weather'][0]['hourly'][
-    #             datetime_start.hour + 1]['weatherDesc'][0]['value'].lower()
-    #
-    #         # Choose the right word to describe the time period
-    #         if datetime_start.hour <= 12 and datetime_end.hour <= 16:
-    #             time_period = 'afternoon'
-    #         elif datetime_start.hour <= 0 and datetime_end.hour <= 8:
-    #             time_period = 'night'
-    #         elif datetime_start.hour <= 16 and datetime_end.hour <= 23:
-    #             time_period = 'tonight'
-    #         elif datetime_start.hour <= 8 and datetime_end.hour <= 12:
-    #             time_period = 'morning'
-    #
-    #         # if the time period can be described with a word use it here
-    #         if time_period:
-    #             output_string = random.choice(
-    #                 WEATHER_TIME_PERIOD_DEFINED)
-    #             response = output_string.format(
-    #                 place=self.city,
-    #                 time_period=time_period,
-    #                 temperature=temperature,
-    #                 condition=condition)
-    #
-    #         # If the time period cannot be defined by a single word use the
-    #         # time the user provided
-    #         else:
-    #             output_string = random.choice(WEATHER_TIME_PERIOD)
-    #             response = output_string.format(
-    #                 condition=condition,
-    #                 city=self.city,
-    #                 temp=temperature,
-    #                 time_start=datetime_start.strftime('%I:%M%p'),
-    #                 time_end=datetime_end.strftime('%I:%M%p'))
-    #
-    #     # datetime period over multiple days
-    #     else:
-    #         # If the user is requesting weather for the weekend
-    #         if datetime_start.day == 5 and datetime_end.day == 6:
-    #             response = random.choice(WEATHER_DATE_PERIOD_WEEKEND).format(
-    #                 city=self.city,
-    #                 condition_sun=forecast['weather'][1]['hourly'][
-    #                     12]['weatherDesc'][0]['value'].lower(),
-    #                 sun_temp_min=forecast['weather'][1]['mintemp' + self.unit],
-    #                 sun_temp_max=forecast['weather'][1]['maxtemp' + self.unit],
-    #                 condition_sat=forecast['weather'][0]['hourly'][
-    #                     12]['weatherDesc'][0]['value'].lower(),
-    #                 sat_temp_min=forecast['weather'][0]['mintemp' + self.unit],
-    #                 sat_temp_max=forecast['weather'][0]['maxtemp' + self.unit])
-    #         # If the user is requesting a non-weekend date range
-    #         else:
-    #             (max_temp, min_temp) = self.__get_max_min_temp()
-    #
-    #             # Format temperature strings
-    #             max_temp = str(max_temp).encode('utf-8') + \
-    #                 u'°'.encode('utf-8') + self.unit.encode('utf-8')
-    #             min_temp = str(min_temp).encode('utf-8') + \
-    #                 u'°'.encode('utf-8') + self.unit.encode('utf-8')
-    #
-    #             response = random.choice(WEATHER_DATE_PERIOD).format(
-    #                 date_start=datetime_start.strftime('%Y-%m-%d'),
-    #                 date_end=datetime_end.strftime('%Y-%m-%d'),
-    #                 city=self.city,
-    #                 condition=forecast['weather'][0]['hourly'][
-    #                     12]['weatherDesc'][0]['value'].lower(),
-    #                 degree_list_min=min_temp,
-    #                 degree_list_max=max_temp)
-    #
-    #     return response
 
     def get_activity_response(self):
         """Takes an activity and a forecast
@@ -344,14 +137,14 @@ class Forecast(object):
             resp = random.choice(WEATHER_ACTIVITY_YES).format(
                 activity=activity)
         elif activity in WINTER_ACTIVITY:
-            if self.forecasts[0].high() <= _TEMP_LIMITS['cold'][self.unit]:
+            if self.forecasts[0].high() <= TEMP_LIMITS['cold'][self.unit]:
                 resp = random.choice(WEATHER_ACTIVITY_YES).format(
                     activity=activity)
             else:
                 resp = random.choice(WEATHER_ACTIVITY_NO).format(
                     activity=activity)
         elif activity in SUMMER_ACTIVITY:
-            if self.forecasts[0].high() >= _TEMP_LIMITS['warm'][self.unit]:
+            if self.forecasts[0].high() >= TEMP_LIMITS['warm'][self.unit]:
                 resp = random.choice(WEATHER_ACTIVITY_YES).format(
                     activity=activity)
             else:
@@ -381,48 +174,34 @@ class Forecast(object):
         return self.forecasts[0].text()
 
     def get_outfit_response(self):
-        """Takes an outfit and a forecast
-
-        returns the appropriateness of outfit with the weather as a string
+        """Takes an outfit and a forecast.
+        :returns the appropriateness of outfit with the weather as a string
         """
-
         outfit = self.action['outfit']
-        condition = self.action['condition']
         max_temp = self.forecasts[0].high()
         min_temp = self.forecasts[0].low()
-        condition_chance = None
 
         if outfit in COLD_WEATHER:
-            answer = LIST_YES if min_temp < _TEMP_LIMITS[
+            answer = LIST_YES if min_temp < TEMP_LIMITS[
                 'chilly'][self.unit] else LIST_NO
         elif outfit in WARM_WEATHER:
-            answer = LIST_YES if max_temp < _TEMP_LIMITS[
+            answer = LIST_YES if max_temp < TEMP_LIMITS[
                 'warm'][self.unit] else LIST_NO
         elif outfit in HOT_WEATHER:
-            answer = LIST_YES if max_temp < _TEMP_LIMITS[
+            answer = LIST_YES if max_temp < TEMP_LIMITS[
                 'hot'][self.unit] else LIST_NO
         elif outfit in RAIN:
-            condition = 'rain'
             rain_conditions = [0, 1, 2, 3, 4, 6, 9, 11, 12, 37, 38, 39, 40, 45, 47]
             answer = LIST_YES if rain_conditions.__contains__(self.code) else LIST_NO
         elif outfit in SNOW:
-            condition = 'snow'
             snow_conditions = [5, 7, 8, 10, 13, 14, 15, 16, 17, 18, 19, 25, 41, 42, 43, 46]
             answer = LIST_YES if snow_conditions.__contains__(self.code) else LIST_NO
         elif outfit in SUN:
-            condition = 'sunshine'
             sun_conditions = [29, 30, 31, 32, 33, 34, 36]
             answer = LIST_YES if sun_conditions.__contains__(self.code) else LIST_NO
         else:
             return 'I don\'t know about %s' % outfit
-
-        if condition_chance:
-            return random.choice(RESPONSE_WEATHER_OUTFIT).format(
-                condition_original=condition,
-                condition=condition_chance,
-                answer=random.choice(answer))
-        else:
-            return random.choice(answer)
+        return random.choice(answer)
 
     def get_temperature_response(self):
         """Takes a temperature and indicates its severity in a string
@@ -430,11 +209,11 @@ class Forecast(object):
 
         temp = self.condition['temp']
 
-        if temp >= _TEMP_LIMITS['hot'][self.unit]:
+        if temp >= TEMP_LIMITS['hot'][self.unit]:
             resp = LIST_HOT
-        elif temp > _TEMP_LIMITS['chilly'][self.unit]:
+        elif temp > TEMP_LIMITS['chilly'][self.unit]:
             resp = LIST_WARM
-        elif temp > _TEMP_LIMITS['cold'][self.unit]:
+        elif temp > TEMP_LIMITS['cold'][self.unit]:
             resp = LIST_CHILLY
         else:
             resp = LIST_COLD
@@ -455,11 +234,11 @@ class Forecast(object):
 
         output_string = random.choice(WEATHER_CURRENT)
 
-        return output_string.format(
+        response = output_string.format(
             place=self.city,
             temperature=temperature,
-            condition=condition
-        )
+            condition=condition)
+        return response
 
 
 def validate_params(parameters):
@@ -494,8 +273,8 @@ def validate_params(parameters):
 
     # Unit
     params['unit'] = parameters.get('unit')
-    if not params['unit'] and _DEFAULT_TEMP_UNIT:
-        params['unit'] = _DEFAULT_TEMP_UNIT
+    if not params['unit'] and DEFAULT_TEMP_UNIT:
+        params['unit'] = DEFAULT_TEMP_UNIT
 
     # activity
     if parameters.get('activity'):
