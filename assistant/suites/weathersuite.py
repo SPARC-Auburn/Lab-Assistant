@@ -9,7 +9,7 @@ Description: A collection of responses and functions pertaining to processing we
 import dialogflow
 import json
 
-from flask import Flask, make_response, jsonify  # request
+from flask import Flask  # request
 from weather.forecast import Forecast, validate_params
 
 APP = Flask(__name__)

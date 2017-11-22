@@ -82,48 +82,7 @@ WEATHER_DATE = [
     'Expect in {place} {day} to have a high of {high} and a low of {low} along with {condition} conditions.'
 ]
 
-# WEATHER_DATE_TIME = [
-#     '{day} in {place} at {time} it will be around {temperature} and \
-#     {condition}.',
-#     '{day} in {place} at {time} you can expect it to be around {temperature} \
-#     and {condition}.',
-#     '{day} in {place} at {time} you can expect {condition}, with the \
-#     temperature around {temperature}.',
-#     '{day} in {place} at {time} it will be {condition}, {temperature}.',
-#     'At {time} on {day} in {place} it will be {temperature} and {condition}.'
-# ]
-
-# WEATHER_TIME_PERIOD = [
-#     'It will be {condition} in {city} and around {temp} on period from \
-#     {time_start} till {time_end}.'
-# ]
-
-#
-# WEATHER_DATE_PERIOD_WEEKEND = [
-#     'On Saturday in {city} it will be {condition_sat}, '
-#     'with temperatures from {sat_temp_min} to {sat_temp_max}. '
-#     'And Sunday should be {condition_sun}, '
-#     'with a low of {sun_temp_min} and a high of {sun_temp_max}.'
-# ]
-
-# WEATHER_DATE_PERIOD = [
-#     'During period from {date_start} till {date_end}'
-#     ' in {city} you can expect {condition}, '
-#     'with a low of {degree_list_min} and a high of {degree_list_max}.'
-# ]
-
-
 RESPONSE_WEATHER_CONDITION = [
     'It is {condition} outside.',
     'There\'s a pretty good chance it\'s {condition} outside.'
 ]
-#
-# RESPONSE_WEATHER_OUTFIT = [
-#     'Chance of {condition_original} is {condition} percent. {answer}'
-# ]
-# WEATHER_WEEKDAY = [
-#     'On {date} in {place} it will be {condition}, {temperature}.',
-#     'On {date} in {place} it\'s expected to be {condition}, {temperature}.',
-#     'The forecast for {date} in {place} is {condition}, {temperature}.',
-#     '{date} in {place} is expected to be {condition}, {temperature}.'
-# ]

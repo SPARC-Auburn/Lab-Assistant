@@ -165,8 +165,7 @@ WARM_WEATHER = [
     't-shirt',
     'tee shirt',
     'dress',
-    'gum boots',
-    'hat'
+    'gum boots'
 ]
 
 HOT_WEATHER = [
@@ -199,13 +198,10 @@ UNKNOWN_WEATHER = [
 
 RAIN = [
     'umbrella',
-    'coat',
-    'gum boots',
-    'hat',
-    'jacket',
     'rain coat',
     'rain jacket',
     'rain pants',
+    'poncho',
 ]
 
 SNOW = [

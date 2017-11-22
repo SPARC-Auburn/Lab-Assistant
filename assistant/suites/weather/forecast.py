@@ -51,9 +51,7 @@ from weather_entities import (
     WARM_WEATHER,
     HOT_WEATHER,
     RAIN,
-    SNOW,
-    SUN)
-
+    SNOW)
 
 # ---- Constants ----
 MAX_FORECAST_LEN = 5
@@ -191,9 +189,6 @@ class Forecast(object):
         elif outfit in SNOW:
             snow_conditions = [5, 7, 8, 10, 13, 14, 15, 16, 17, 18, 19, 25, 41, 42, 43, 46]
             answer = LIST_YES if snow_conditions.__contains__(self.code) else LIST_NO
-        elif outfit in SUN:
-            sun_conditions = [29, 30, 31, 32, 33, 34, 36]
-            answer = LIST_YES if sun_conditions.__contains__(self.code) else LIST_NO
         elif outfit in HOT_WEATHER or outfit in WARM_WEATHER:
             if avg_temp > TEMP_LIMITS['hot'][self.unit]:
                 answer = LIST_YES
@@ -231,7 +226,7 @@ class Forecast(object):
         else:
             resp = LIST_COLD
         temp_phrase = "  It is " + str(temp) + " degrees Farenheit."
-        return random.choice(resp)  + temp_phrase
+        return random.choice(resp) + temp_phrase
 
     def get_current_response(self):
         """Takes a forecast and returns the current conditions as a string
