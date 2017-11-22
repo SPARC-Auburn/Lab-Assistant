@@ -10,7 +10,7 @@ In Slack use @Karen to communicate
 import sys
 from slackclient import SlackClient
 import manage_suites
-from voice_properties import *
+from properties import *
 
 
 READ_WEBSOCKET_DELAY = 1  # 1 second delay between reading from fire hose
