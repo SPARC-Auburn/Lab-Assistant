@@ -82,12 +82,8 @@ def weather(req):
     except (ValueError, IOError) as error:
         return error
 
-    # If the user requests a datetime period (a date/time range), get the
-    # response
-    if forecast.date_start and forecast.date_end:
-        response = forecast.get_date_period_response()
     # If the user requests a specific datetime, get the response
-    elif forecast.date_start:
+    if forecast.date_start:
         response = forecast.get_date_response()
     # If the user doesn't request a date in the request get current conditions
     else:
@@ -203,7 +199,8 @@ def weather_temperature(req):
         return error
 
     # If the user didn't specify a temperature, get the weather for them
-    if 'temperature' not in forecast_params:
+    #if 'temperature' not in forecast_params:
+    if parameters["temperature"] is None:
         return weather(req)
 
     # create a forecast object which retrieves the forecast from a external API

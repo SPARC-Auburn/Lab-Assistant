@@ -12,8 +12,7 @@ from suites.weathersuite import *
 from suites.fallbacksuite import *
 import socket
 
-suites = [DefaultSuite(), LabSuite(), HomeSuite(), WeatherSuite(), FallBackSuite()]
-# suites = [WeatherSuite(), FallBackSuite()]
+suites = [LabSuite(), HomeSuite(), WeatherSuite(), DefaultSuite(), FallBackSuite()]
 
 
 def getresponse(user_message):

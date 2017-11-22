@@ -24,6 +24,7 @@ process and validate date related to the weather forecast class.  It pulls weath
 """
 
 import random
+import geocoder
 from datetime import datetime as dt
 from weather import Weather
 from weather_responses import (
@@ -33,30 +34,36 @@ from weather_responses import (
     LIST_NO,
     LIST_COLD,
     LIST_CHILLY,
+    LIST_COOL,
     LIST_WARM,
     LIST_HOT,
     WEATHER_CURRENT,
-    WEATHER_DATE)
+    WEATHER_DATE,
+    RESPONSE_WEATHER_CONDITION)
 from weather_entities import (
     WINTER_ACTIVITY,
     SUMMER_ACTIVITY,
     DEMI_ACTIVITY,
     UNSUPPORTED,
     COLD_WEATHER,
+    CHILLY_WEATHER,
+    COOL_WEATHER,
     WARM_WEATHER,
     HOT_WEATHER,
     RAIN,
     SNOW,
     SUN)
 
+
 # ---- Constants ----
 MAX_FORECAST_LEN = 5
 DEFAULT_TEMP_UNIT = 'F'
 TEMP_LIMITS = {
-    'hot': {'C': 25, 'F': 77},
-    'warm': {'C': 15, 'F': 59},
-    'chilly': {'C': 15, 'F': 41},
-    'cold': {'C': -5, 'F': 23}
+    'hot': {'C': 26, 'F': 79},  # > 79F
+    'warm': {'C': 19, 'F': 67},  # 79F > warm > 67F
+    'cool': {'C': 13, 'F': 55},  # 67F > cool > 55F
+    'chilly': {'C': 0, 'F': 32},  # 55F > chilly > 32F
+    'cold': {'C': 0, 'F': 32}  # 32F > cold
 }
 DAYS_OF_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -76,9 +83,18 @@ class Forecast(object):
 
     def __init__(self, params):
         """Initializes the Forecast object. Gets the forecast for the provided dates"""
+        params.setdefault('date-time', dt.now().date())
+        print (params)
         self.city = params['city']
-        self.date_start = params['datetime_start']
+        if self.city is None:
+            self.city = getcity()
+        try:
+            self.date_start = params['datetime_start']
+        except Exception:
+            self.date_start = params['date-time']
         self.unit = params['unit']
+        if self.unit is None:
+            self.unit = 'F'
         self.action = {
             'activity': params['activity'],
             'condition': params['condition'],
@@ -105,11 +121,11 @@ class Forecast(object):
             date_start = self.date_start.date()
         except AttributeError:
             date_start = self.date_start
-        days_from_today = date_start - dt.now().date()
+        days_from_today = (date_start - dt.now().date()).days
         if days_from_today == 0:  # Today
-            date = "Today"
+            date = "today"
         elif days_from_today == 1:  # Tomorrow
-            date = "Tomorrow"
+            date = "tomorrow"
         elif days_from_today < 0:  # In the past
             return "I do not remember what the weather was on that day."
         elif days_from_today > MAX_FORECAST_LEN:  # Too far in the future
@@ -120,9 +136,9 @@ class Forecast(object):
         response = output_string.format(
             day=date,
             place=self.city,
-            high=self.forecasts[0].high(),
-            low=self.forecasts[0].low(),
-            condition=self.forecasts[0].text())
+            high=self.forecasts[days_from_today].high(),
+            low=self.forecasts[days_from_today].low(),
+            condition=self.forecasts[days_from_today].text().lower())
         return response
 
     def get_activity_response(self):
@@ -137,7 +153,7 @@ class Forecast(object):
             resp = random.choice(WEATHER_ACTIVITY_YES).format(
                 activity=activity)
         elif activity in WINTER_ACTIVITY:
-            if self.forecasts[0].high() <= TEMP_LIMITS['cold'][self.unit]:
+            if self.forecasts[0].high() <= TEMP_LIMITS['cool'][self.unit]:
                 resp = random.choice(WEATHER_ACTIVITY_YES).format(
                     activity=activity)
             else:
@@ -158,39 +174,18 @@ class Forecast(object):
     def get_condition_response(self):
         """Takes a condition and returns the probability as a string
         """
-        #
-        # condition = self.action['condition']
-        #
-        # if condition in CONDITION_DICT.keys():
-        #     condition_chance = self.forecast['weather'][
-        #         0]['hourly'][12][CONDITION_DICT[condition]]
-        #     resp = random.choice(RESPONSE_WEATHER_CONDITION).format(
-        #         condition_original=condition,
-        #         condition=condition_chance
-        #     )
-        # else:
-        #     resp = 'I don\'t know about %s' % condition
-
-        return self.forecasts[0].text()
+        return random.choice(RESPONSE_WEATHER_CONDITION).format(condition=self.condition['text'].lower())
 
     def get_outfit_response(self):
         """Takes an outfit and a forecast.
         :returns the appropriateness of outfit with the weather as a string
         """
         outfit = self.action['outfit']
-        max_temp = self.forecasts[0].high()
-        min_temp = self.forecasts[0].low()
-
-        if outfit in COLD_WEATHER:
-            answer = LIST_YES if min_temp < TEMP_LIMITS[
-                'chilly'][self.unit] else LIST_NO
-        elif outfit in WARM_WEATHER:
-            answer = LIST_YES if max_temp < TEMP_LIMITS[
-                'warm'][self.unit] else LIST_NO
-        elif outfit in HOT_WEATHER:
-            answer = LIST_YES if max_temp < TEMP_LIMITS[
-                'hot'][self.unit] else LIST_NO
-        elif outfit in RAIN:
+        max_temp = int(self.forecasts[0].high())
+        min_temp = int(self.forecasts[0].low())
+        avg_temp = (max_temp + min_temp)/2
+        print("Avg temperature = " + str(avg_temp))
+        if outfit in RAIN:
             rain_conditions = [0, 1, 2, 3, 4, 6, 9, 11, 12, 37, 38, 39, 40, 45, 47]
             answer = LIST_YES if rain_conditions.__contains__(self.code) else LIST_NO
         elif outfit in SNOW:
@@ -199,6 +194,22 @@ class Forecast(object):
         elif outfit in SUN:
             sun_conditions = [29, 30, 31, 32, 33, 34, 36]
             answer = LIST_YES if sun_conditions.__contains__(self.code) else LIST_NO
+        elif outfit in HOT_WEATHER or outfit in WARM_WEATHER:
+            if avg_temp > TEMP_LIMITS['hot'][self.unit]:
+                answer = LIST_YES
+            elif avg_temp > TEMP_LIMITS['warm'][self.unit]:
+                answer = LIST_YES
+            else:
+                answer = LIST_NO
+        elif outfit in COOL_WEATHER or outfit in CHILLY_WEATHER or outfit in COLD_WEATHER:
+            if avg_temp > TEMP_LIMITS['cool'][self.unit]:
+                    answer = LIST_YES
+            elif avg_temp > TEMP_LIMITS['chilly'][self.unit]:
+                    answer = LIST_YES
+            elif avg_temp < TEMP_LIMITS['cold'][self.unit]:
+                answer = LIST_YES
+            else:
+                answer = LIST_NO
         else:
             return 'I don\'t know about %s' % outfit
         return random.choice(answer)
@@ -207,18 +218,20 @@ class Forecast(object):
         """Takes a temperature and indicates its severity in a string
         """
 
-        temp = self.condition['temp']
+        temp = int(self.condition['temp'])
 
         if temp >= TEMP_LIMITS['hot'][self.unit]:
             resp = LIST_HOT
-        elif temp > TEMP_LIMITS['chilly'][self.unit]:
+        elif temp > TEMP_LIMITS['warm'][self.unit]:
             resp = LIST_WARM
-        elif temp > TEMP_LIMITS['cold'][self.unit]:
+        elif temp > TEMP_LIMITS['cool'][self.unit]:
+            resp = LIST_COOL
+        elif temp > TEMP_LIMITS['chilly'][self.unit]:
             resp = LIST_CHILLY
         else:
             resp = LIST_COLD
-
-        return random.choice(resp)
+        temp_phrase = "  It is " + str(temp) + " degrees Farenheit."
+        return random.choice(resp)  + temp_phrase
 
     def get_current_response(self):
         """Takes a forecast and returns the current conditions as a string
@@ -257,7 +270,7 @@ def validate_params(parameters):
         params['city'] = parameters.get('address').get('city')
     else:
         params['city'] = None
-        error_response += 'please specify city '
+        # error_response += 'Please specify a city. '
 
     # Date-time and date-periods
     if parameters.get('date-time') or parameters.get('date-period'):
@@ -372,3 +385,12 @@ def parse_datetime_input(datetime_input):
         datetime_end = None
 
     return datetime_start, datetime_end
+
+
+def getcity():
+    g = geocoder.ip('me')
+    address = geocoder.reverse(g.latlng)
+    if "US" in address.country:
+        return address.city + ", " + address.state
+    else:
+        return address.city + ", " + address.country

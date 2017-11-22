@@ -16,8 +16,8 @@ assistant_label = assistant_name.upper() + " > "
 
 
 def main():
-    print_slow(assistant_label + "My name is " + assistant_name + " and I am here " + assistant_purpose + ".")
-    print_slow(assistant_label + "How may I help you?")
+    print(assistant_label + "My name is " + assistant_name + " and I am here " + assistant_purpose +
+          ". How may I help you?")
     while manage_suites.is_connected():
         user_message = raw_input('< ')
         if len(user_message) > 0:

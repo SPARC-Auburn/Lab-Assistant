@@ -32,8 +32,9 @@ WEATHER_ACTIVITY_NO = [
 LIST_YES = [
     'Better have it with you, just in case.',
     'It never hurts to be extra prepared.',
-    'Better to have it and not need it than to need it and not have it.',
-    'Considering the forecast, I\'m going to say yes.'
+    'Considering the forecast, I\'m going to say yes.',
+    'Definitely!',
+    'That\'s not a bad idea.'
 ]
 
 LIST_NO = [
@@ -44,7 +45,7 @@ LIST_NO = [
 ]
 
 LIST_COLD = [
-    'Quite cold there.',
+    'Quite cold out there.',
     'Pretty freezing, I would say.',
     'Don\'t forget your gloves.'
 ]
@@ -54,8 +55,14 @@ LIST_CHILLY = [
     'You\'ll need a jacket for sure.'
 ]
 
+LIST_COOL = [
+    'I would say it is a little cool.',
+    'It\'s not the warmest of days'
+]
+
 LIST_WARM = [
-    'Temperature is okay.'
+    'Temperature is quite nice.',
+    'It is a little warm outside.',
 ]
 
 LIST_HOT = [
@@ -71,15 +78,8 @@ WEATHER_CURRENT = [
 ]
 
 WEATHER_DATE = [
-    '{day} in {place} the high will be {high} and the low will be {low} and the condition will be like {condition}.',
-    '{place} {day} will have temperatures ranging between {high} and {low} and will have {condition} conditions.',
-    'Expect in {place} {day} to have a high of {high} and a low of {low} along with {condition} conditions'
-]
-
-WEATHER_TODAY = [
-    'Today in {place} the high will be {high} and the low will be {low} and the condition will be like {condition}.',
-    '{place} today will have temperatures ranging between {high} and {low} and will have {condition} conditions.',
-    'Expect in {place} today to have a high of {high} and a low of {low} along with {condition} conditions'
+    '{place}, {day} will have temperatures ranging between {high} and {low} and will have {condition} conditions.',
+    'Expect in {place} {day} to have a high of {high} and a low of {low} along with {condition} conditions.'
 ]
 
 # WEATHER_DATE_TIME = [
@@ -113,9 +113,10 @@ WEATHER_TODAY = [
 # ]
 
 
-# RESPONSE_WEATHER_CONDITION = [
-#     'Chance of {condition_original} is {condition} percent.'
-# ]
+RESPONSE_WEATHER_CONDITION = [
+    'It is {condition} outside.',
+    'There\'s a pretty good chance it\'s {condition} outside.'
+]
 #
 # RESPONSE_WEATHER_OUTFIT = [
 #     'Chance of {condition_original} is {condition} percent. {answer}'
