@@ -32,6 +32,7 @@ def print_slow(message):
         sleep(0.25)
     print("")
 
+
 if __name__ == "__main__":
     print("Starting assistant...")
     sleep(1)
