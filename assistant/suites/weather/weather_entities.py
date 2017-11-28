@@ -38,13 +38,14 @@ SUMMER_ACTIVITY = [
     'skating',
     'parasailing',
     'windsurfing',
-    'mushroom hunting',
-    'elephant safari',
     'kayaking',
     'mountain biking',
     'surfing',
     'frisbee',
-    'camping'
+    'camping',
+    'football',
+    'tennis',
+    'soccer'
 ]
 
 DEMI_ACTIVITY = [
@@ -90,6 +91,8 @@ UNSUPPORTED = [
 
 # outfit
 COLD_WEATHER = [
+    'coat',
+    'jacket',
     'wool socks',
     'wool cap',
     'turtleneck',
@@ -108,7 +111,46 @@ COLD_WEATHER = [
     'cardigan',
     'fleece top',
     'gloves',
+    'parca',
+    'jeans',
     'jacket'
+]
+CHILLY_WEATHER = [
+    'coat',
+    'jacket',
+    'wool socks',
+    'sweatshirt',
+    'sweatpants',
+    'sweater',
+    'scarf',
+    'boots',
+    'cardigan',
+    'fleece top',
+    'gloves',
+    'leggings',
+    'jeans',
+    'jacket'
+]
+
+COOL_WEATHER = [
+    'coat',
+    'dress pants',
+    'dress shirt',
+    'jacket',
+    'wool socks',
+    'sweat shirt',
+    'sweat pants',
+    'sweater',
+    'scarf',
+    'boots',
+    'cardigan',
+    'fleece top',
+    'jacket',
+    'hoodie',
+    'vest',
+    'leggings',
+    'quarter zip',
+    'pull over'
 ]
 
 WARM_WEATHER = [
@@ -118,25 +160,26 @@ WARM_WEATHER = [
     'sneakers',
     'sleeve shirt',
     'casual shirt',
-    'coat',
-    'dress pants',
-    'dress shirt',
+    'sneakers',
+    'shorts',
+    't-shirt',
+    'tee shirt',
     'dress',
-    'gum boots',
-    'hat',
-    'hoodie',
+    'gum boots'
 ]
 
 HOT_WEATHER = [
     'tank top',
     't-shirt',
+    'tee shirt',
     'swimwear',
+    'swimsuit',
+    'swim suite',
     'swim goggles',
     'sunscreen',
     'skirt',
     'shorts',
     'bathing suit',
-    'bra',
     'capri',
     'flips flops',
     'pool shoes',
@@ -155,13 +198,10 @@ UNKNOWN_WEATHER = [
 
 RAIN = [
     'umbrella',
-    'coat',
-    'gum boots',
-    'hat',
-    'jacket',
     'rain coat',
     'rain jacket',
     'rain pants',
+    'poncho',
 ]
 
 SNOW = [
@@ -174,7 +214,6 @@ SNOW = [
 SUN = [
     'swimwear',
     'swim goggles',
-    'bra',
     'bathing suit',
     'flips flops',
     'sandals',

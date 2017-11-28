@@ -21,11 +21,20 @@ This is meant to be used with the sample weather agent for API.AI, located at
 https://console.api.ai/api-client/#/agent//prebuiltAgents/Weather
 """
 
+WEATHER_ACTIVITY_YES = [
+    'What a nice weather for {activity}!'
+]
+
+WEATHER_ACTIVITY_NO = [
+    'Not the best weather for {activity}.'
+]
+
 LIST_YES = [
     'Better have it with you, just in case.',
     'It never hurts to be extra prepared.',
-    'Better to have it and not need it than to need it and not have it.',
-    'Considering the forecast, I\'m going to say yes.'
+    'Considering the forecast, I\'m going to say yes.',
+    'Definitely!',
+    'That\'s not a bad idea.'
 ]
 
 LIST_NO = [
@@ -36,7 +45,7 @@ LIST_NO = [
 ]
 
 LIST_COLD = [
-    'Quite cold there.',
+    'Quite cold out there.',
     'Pretty freezing, I would say.',
     'Don\'t forget your gloves.'
 ]
@@ -46,8 +55,14 @@ LIST_CHILLY = [
     'You\'ll need a jacket for sure.'
 ]
 
+LIST_COOL = [
+    'I would say it is a little cool.',
+    'It\'s not the warmest of days'
+]
+
 LIST_WARM = [
-    'Temperature is okay.'
+    'Temperature is quite nice.',
+    'It is a little warm outside.',
 ]
 
 LIST_HOT = [
@@ -63,72 +78,11 @@ WEATHER_CURRENT = [
 ]
 
 WEATHER_DATE = [
-    '{day} in {place} it will be around {temperature} and {condition}.',
-    '{day} in {place} you can expect it to be around {temperature} and \
-    {condition}.',
-    '{day} in {place} you can expect {condition}, with temperature around \
-    {temperature}.',
-    '{day} in {place} it will be {condition}, {temperature}.',
-]
-
-WEATHER_WEEKDAY = [
-    'On {date} in {place} it will be {condition}, {temperature}.',
-    'On {date} in {place} it\'s expected to be {condition}, {temperature}.',
-    'The forecast for {date} in {place} is {condition}, {temperature}.',
-    '{date} in {place} is expected to be {condition}, {temperature}.'
-]
-
-WEATHER_DATE_TIME = [
-    '{day} in {place} at {time} it will be around {temperature} and \
-    {condition}.',
-    '{day} in {place} at {time} you can expect it to be around {temperature} \
-    and {condition}.',
-    '{day} in {place} at {time} you can expect {condition}, with the \
-    temperature around {temperature}.',
-    '{day} in {place} at {time} it will be {condition}, {temperature}.',
-    'At {time} on {day} in {place} it will be {temperature} and {condition}.'
-]
-
-WEATHER_TIME_PERIOD = [
-    'It will be {condition} in {city} and around {temp} on period from \
-    {time_start} till {time_end}.'
-]
-
-WEATHER_TIME_PERIOD_DEFINED = [
-    'This {time_period} in {place} it will be {temperature} and {condition}.',
-    'This {time_period} in {place} you can expect {condition}, with \
-    temperature around {temperature}.',
-    'Expect a {condition} {time_period} in {place}, with temperature around \
-    {temperature}.',
-    'It will be {condition} in {place} and around {temperature} this \
-    {time_period}.',
-]
-
-WEATHER_DATE_PERIOD_WEEKEND = [
-    'On Saturday in {city} it will be {condition_sat}, '
-    'with temperatures from {sat_temp_min} to {sat_temp_max}. '
-    'And Sunday should be {condition_sun}, '
-    'with a low of {sun_temp_min} and a high of {sun_temp_max}.'
-]
-
-WEATHER_DATE_PERIOD = [
-    'During period from {date_start} till {date_end}'
-    ' in {city} you can expect {condition}, '
-    'with a low of {degree_list_min} and a high of {degree_list_max}.'
-]
-
-WEATHER_ACTIVITY_YES = [
-    'What a nice weather for {activity}!'
-]
-
-WEATHER_ACTIVITY_NO = [
-    'Not the best weather for {activity}.'
+    '{place}, {day} will have temperatures ranging between {high} and {low} and will have {condition} conditions.',
+    'Expect in {place} {day} to have a high of {high} and a low of {low} along with {condition} conditions.'
 ]
 
 RESPONSE_WEATHER_CONDITION = [
-    'Chance of {condition_original} is {condition} percent.'
-]
-
-RESPONSE_WEATHER_OUTFIT = [
-    'Chance of {condition_original} is {condition} percent. {answer}'
+    'It is {condition} outside.',
+    'There\'s a pretty good chance it\'s {condition} outside.'
 ]
